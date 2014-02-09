@@ -1,46 +1,83 @@
+/**
+ * Copyright 2014 Yevgen Yampolskiy
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+
 package wiki;
 
 import org.apache.hadoop.io.Text;
 
-/**
- * Created with IntelliJ IDEA.
- * User: yevgen
- * Date: 2/7/14
- * Time: 9:04 PM
- * To change this template use File | Settings | File Templates.
- */
+
 public class Analyzer {
+
+
+
+    static boolean[] letters = new boolean[256];
+    static {
+        for(byte i = 'a'; i <= 'z'; i++){
+            letters[i] = true;
+        }
+        for(byte i = 'A'; i <= 'Z'; i++){
+            letters[i] = true;
+        }
+    }
+
+    /**
+     *
+     * @param page single wiki page
+     * @param len length of the input page
+     * @return length of page using single space as word separator
+     */
+    static int cleanNonWords(byte[] page, int len){
+        int pointer = 0;
+        boolean separtor = true;
+        for(int i = 0; i < len; i++){
+            boolean isLetter = letters[(int) page[i] & 0xFF];
+            if ((!isLetter) && separtor)
+                continue;
+
+            separtor = !isLetter;
+
+            if (isLetter)
+                page[pointer++] = page[i];
+            else
+                page[pointer++] = ' ';
+        }
+        return pointer;
+    }
 
     /**
      * Removes:
      * Text before <text xml:space="preserve">
      * Text after </text>
      * Titles marked by ^=...=$
-     * References tagged by <ref ...</ref>     -- removes citations
      * [http:// ... ]  (single bracket!)
      * Control structures tagged as {{....}}  with possible embedded levels {{ ... {{ ... }}  ...  }}
      * [[File: .... [[  ....  ]]  .... ]]
      * [[Image: .... [[  ....  ]]  .... ]]
+     * More generally: [[\w*: ... ]]
+     * References tagged by <ref ...</ref>     -- removes citations
      * &lt;gallery&gt; ... &lt;/gallery&gt;
-
+     * more generally, all text between &lt; and 'matching' &gt;
      * @param page single wiki page
+     * @param len actual length of the wiki page
+     * @param removeStart indicates if we should consider only chars after<text xml:space="preserve">
      * @return length of the clean page; input page will be modified
      */
     static int cleanupPage(byte[] page, int len, boolean removeStart){
-        int pointer = 0;
-        boolean newLine = true;
-        int ref = 0;
-        int brc = 0;
-        int txt = 0;
-
-        byte[] refBytes = "&lt;ref".getBytes();
-        byte[] endRefBytes = "&lt;/ref&gt;".getBytes();
-        byte[] endLstBytes = "]]".getBytes();
-        byte[] braceBytes = "{{".getBytes();
-        byte[] endBraceBytes = "}}".getBytes();
-        byte[] endText = "</text>".getBytes();
-        byte[] closeTag = "&gt;".getBytes();
-
         final byte[] txtStart = "<text xml:space=\"preserve\">".getBytes();
 
         int start = 0;
@@ -66,6 +103,20 @@ public class Analyzer {
         }
 
 
+        int pointer = 0;
+        boolean newLine = true;
+
+
+        //first byte is used as a counter, so it is initialized as \1
+        byte[] ltBytes = "\1&lt;".getBytes();
+        byte[] braceBytes = "\1{{".getBytes();
+        byte[] endText = "\1</text>".getBytes();
+        byte[] bracketBytes = "\1[[".getBytes();
+        byte[] httpBytes = "\1[http://".getBytes();
+
+
+        byte[][] tags = new byte[][]{ltBytes, braceBytes, endText, bracketBytes, httpBytes};
+        byte[] gtBytes = "\1&gt;".getBytes();//temp buffer
 
         I:
         for(int i = end+1; i < len; i++){
@@ -91,89 +142,73 @@ public class Analyzer {
                 }
             }
 
-            if (ref == refBytes.length){
-                if (b==' ' || b == '&' || b=='\n' || b=='\r' ){
-                    ref = 0;
-                    //search for &gt;
-                    O:
-                    while(i < len){
-                        if (page[i]  == ';'){
-                            for(int j = 0; j < closeTag.length; j++){
-                                boolean found = true;
-                                if (page[i - closeTag.length + 1 + j] != closeTag[j]){
-                                    found = false;
-                                    break;
-                                }
-                                if (found){
-                                    if (page[i-closeTag.length] == '/'){
-                                        pointer -= refBytes.length;
-                                        continue I;//<ref name='...'/>
-                                    }
-                                    i++;
-                                    break O;
-                                }
-                            }
-                        }
-                        i++;
-                    }
-                    int endRef = 0;
-                    for(int j = i+1; j < len; j++){
-                        if (endRef == endRefBytes.length){
-                            i = j - 1;
-                            pointer -= refBytes.length;
-                            continue I; //found </ref>
-                        }
-                        if (page[j] == endRefBytes[endRef])
-                            endRef++;
-                        else
-                            endRef = 0;
-                    }
+            for (byte[] tag: tags){
+                if (tag[tag[0]] == b){
+                    tag[0]++;
                 }else{
-                    ref = 0;
-                }
-            }
-            if (refBytes[ref] == b) ref++;
-            else ref = 0;
-
-            if (brc == braceBytes.length){  //remove {{...}}
-                brc = 0;
-                int endBrc = 0;
-                int lvl = 1;
-                for(int j = i+1; j < len; j++){
-                    if (page[j] == '{' && page[j-1] == '{')
-                        lvl++; //{{ ... {{
-                    if (endBrc == endBraceBytes.length){
-                        endBrc = 0;
-                        lvl--;
-                        if (lvl == 0){
-                            i = j - 1;
-                            pointer -= braceBytes.length;
-                            continue I;
-                        }
-                    }
-
-                    if (page[j] == endBraceBytes[endBrc])
-                        endBrc++;
-                    else{
-                        endBrc = 0;
-                    }
+                    tag[0] = 1;
                 }
             }
 
-            if (braceBytes[brc] == b){
-                brc++;
-            }else{
-                brc = 0;
-            }
-
-            if (endText.length == txt){
-                pointer -= txt;
+            if (endText.length == endText[0]){//DONE!
+                pointer -= (endText.length - 2);
                 break;
             }
-            if (endText[txt] == b){
-                txt++;
-            }else{
-                txt = 0;
+
+            if (braceBytes.length == braceBytes[0]){  //remove {{...}}
+                braceBytes[0] = 1;
+                int rc = getClosePosition(page, len, i+1, (byte)'{', (byte)'}');//returns position of the character after }}
+                if (rc != -1){
+                    i = rc - 1;
+                    pointer -= 1;
+                    continue I;
+                }
+            }
+
+            if (bracketBytes.length == bracketBytes[0]){  //remove [[...]] if necessary
+                bracketBytes[0] = 1;
+                boolean remove = false;
+                for(int j = i+1; j < len; j++){
+                    if (!letters[(int) page[j] & 0xFF]){
+                        remove = (page[j] == ':');
+                        break;
+                    }
+                }
+                if (remove){
+                    bracketBytes[0] = 1;
+                    int rc = getClosePosition(page, len, i+1, (byte)'[', (byte)']');//returns position of the character after }}
+                    if (rc!=-1){
+                        i = rc - 1;
+                        pointer -= 2;
+                        continue I;
+                    }
+                }
+            }
+
+            if (httpBytes.length == httpBytes[0]){//remove [http://...]
+                httpBytes[0] = 1;
+                for(int j = i + 1; j < len; j++){
+                    if (page[j] == ']'){
+                        i = j;
+                        pointer -= (httpBytes.length - 1);
+                        continue I;
+                    }
+                }
+            }
+
+            if (ltBytes.length == ltBytes[0]){
+                ltBytes[0] = 1;
+                int e = i+1;
+                while(e < len && letters[(int) page[e] & 0xFF])
+                    e++;
+                if (e < len && e != i+1){
+                    int rc = getCloseTag(page, len, i+1, e, e, gtBytes);//tag is given by page[i+1: e)
+                    if (rc != -1){
+                        i = rc - 1;
+                        pointer -= 3;
+                        continue I;
+                    }
+                }
             }
 
             newLine = (b == '\n');
@@ -181,5 +216,113 @@ public class Analyzer {
             page[pointer++] = b;
         }
         return pointer;
+    }
+
+    private static int getCloseTag(byte[] page, int len, int s, int e, int start, byte[] gtBytes){
+        gtBytes[0] = 1;
+        int i = 0;
+        for(i = start; i < len; i++){//search for />
+            if (gtBytes[gtBytes[0]] == page[i]){
+                gtBytes[0]++;
+
+                if (gtBytes[0] == gtBytes.length){
+                    gtBytes[0] = 0;
+                    if (page[i-4] == '/'){ // /&gt;
+                        return i + 1;
+                    }
+                    break;
+                }
+
+            }else{
+                gtBytes[0] = 1;
+            }
+        }
+
+        //search for /tag&gt;
+
+        while(true){
+            int p = find(page, len, s, e, i);//find next tag name
+            if (p == -1)
+                return -1;
+            if (p+3 >=len)//&gt;
+                return -1;
+            //is it close tag?
+
+            if (page[p-(e-s)-5]=='&' && page[p-(e-s)-4]=='l' && page[p-(e-s)-3]=='t' && page[p-(e-s)-2]==';'
+                    && page[p-(e-s)-1]=='/' && page[p] == '&' && page[p+1]=='g' &&  page[p+2]=='t' && page[p+3]==';'){
+                return p+4;
+            }
+
+            //is it embedded open tag?
+            if (page[p-(e-s)-1]==';' && page[p-(e-s)-2] == 't' && page[p-(e-s)-3]=='l' &&  page[p-(e-s)-4]=='&'){
+                if (page[p] == ' ' || page[p]=='\n' || (page[p]=='&' && page[p+1]=='g' &&  page[p+2]=='t' && page[p+3]==';')){
+                    int rc = getCloseTag(page, len, s, e, p, gtBytes);
+                    if (rc == -1)
+                        return -1;
+                    i = rc;
+                    continue;
+                }
+            }
+            i=p;
+        }
+    }
+
+    private static int find(byte[] page, int len, int s, int e, int start){
+        //look for tag where tag is given by page[s:e)
+        while(start < len){
+            if (page[start]==page[s]){
+                int l = e - s;
+                boolean found = true;
+                for(int i = 1; i < l; i++){
+                    if (page[s+i] != page[start+i]){
+                        found = false;
+                        break;
+                    }
+                }
+                if (found){
+                    start += l;
+                    return start;
+                }
+            }
+            start++;
+        }
+        return -1;
+    }
+
+    private static int getClosePosition(byte[] page, int len, int i, byte brace, byte endBrace) {
+
+        int endBrc = 0;
+        int startBrc = 0;
+        int lvl = 1;
+        for(int j = i+1; j < len; j++){
+
+            if (startBrc == 2){
+                startBrc = 0;
+                lvl++;
+            }
+
+            if (endBrc == 2){
+                endBrc = 0;
+                lvl--;
+                if (lvl == 0){
+                    return j;
+                }
+            }
+
+            if (page[j] == endBrace){
+                endBrc++;
+            }
+            else{
+                endBrc = 0;
+            }
+
+            if (page[j] == brace)
+                startBrc++;
+            else{
+                startBrc = 0;
+            }
+
+        }
+        return -1;
     }
 }

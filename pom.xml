@@ -175,7 +175,6 @@ http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
                         <additionalClasspathElement>/usr/lib/hadoop-yarn/.//*</additionalClasspathElement>
                         <additionalClasspathElement>/usr/lib/hadoop-mapreduce/lib/*</additionalClasspathElement>
                         <additionalClasspathElement>/usr/lib/hadoop-mapreduce/.//*</additionalClasspathElement>
-                        <additionalClasspathElement>/mnt/disk0/yevgen/Projects/Hadoop2/Hadoop/target/classes</additionalClasspathElement>
                     </additionalClasspathElements>
                 </configuration>
             </plugin>
