@@ -32,6 +32,7 @@ public class AnalyzerTest {
         String s = null;
         int len = 0;
         byte[] bs = null;
+        String page = null;
 
         s = "abc";
         bs = s.getBytes();
@@ -72,6 +73,16 @@ public class AnalyzerTest {
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
         assertEquals("x   *    def\n*TX", new String(bs, 0, len, Charset.defaultCharset()));
+
+        s = "[[abc:bla]]d"; //remove!
+        bs = s.getBytes();
+        len = Analyzer.cleanupPage(bs, s.length(), false);
+        assertEquals("d", new String(bs, 0, len, Charset.defaultCharset()));
+
+        s = "[http://bla]"; //remove!
+        bs = s.getBytes();
+        len = Analyzer.cleanupPage(bs, s.length(), false);
+        assertEquals("", new String(bs, 0, len, Charset.defaultCharset()));
 
 
         s = "=abc=\nA\n==  def ===\nB\n  c==C=\n  == jjjj  ==   \nF";
@@ -148,14 +159,44 @@ public class AnalyzerTest {
         len = Analyzer.cleanupPage(bs, s.length(), false);
         assertEquals("xxx", new String(bs, 0, len, Charset.defaultCharset()));
 
+        s = "abc&lt;blockquote blabla&gt;XYZ&lt;/blockquote&gt;xxx";
+        bs = s.getBytes();
+        len = Analyzer.cleanupPage(bs, s.length(), false);
+        assertEquals("abc_____________________XYZ___________________xxx", new String(bs, 0, len, Charset.defaultCharset()));
 
-        String page1 = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg1.xml")).useDelimiter("\\A").next();
-        bs = page1.getBytes();
-        len = Analyzer.cleanupPage(bs, page1.length(), true);
-        assertEquals(6308, len);
+
+        s = "abc&lt;!-- xxx --&gt;yyy";
+        bs = s.getBytes();
+        len = Analyzer.cleanupPage(bs, s.length(), false);
+        assertEquals("abcyyy", new String(bs, 0, len, Charset.defaultCharset()));
+
+        s = "&lt;!-- xxx --&gt;";
+        bs = s.getBytes();
+        len = Analyzer.cleanupPage(bs, s.length(), false);
+        assertEquals("", new String(bs, 0, len, Charset.defaultCharset()));
+
+
+        page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg1.xml")).useDelimiter("\\A").next();
+        bs = page.getBytes();
+        assertEquals(10285, bs.length);
+        len = Analyzer.cleanupPage(bs, page.length(), true);
+        assertEquals(6314, len);
         len = Analyzer.cleanNonWords(bs, len);
-        assertEquals(5833, len);
+        assertEquals(5823, len);
 
+        page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg2.xml")).useDelimiter("\\A").next();
+        bs = page.getBytes();
+        assertEquals(26589, bs.length);
+        len = Analyzer.cleanupPage(bs, page.length(), true);
+        assertEquals(16398, len);
+        len = Analyzer.cleanNonWords(bs, len);
+        assertEquals(14894, len);
+
+        page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg3.xml")).useDelimiter("\\A").next();
+        bs = page.getBytes();
+        len = Analyzer.cleanupPage(bs, page.length(), true);
+        System.out.println(new String(bs, 0, len));
+        assertEquals(0, len);
     }
 
 

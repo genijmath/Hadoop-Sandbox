@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.5.0 http://maven.apache.org/xsd/maven-4.0.0.xsd
 http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>Hadoop</groupId>
     <artifactId>Hadoop</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -69,11 +68,11 @@ http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
             <artifactId>hadoop-hdfs</artifactId>
             <version>2.0.0-cdh4.5.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-auth</artifactId>
-            <version>2.0.0-cdh4.5.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.hadoop</groupId>-->
+            <!--<artifactId>hadoop-auth</artifactId>-->
+            <!--<version>2.0.0-cdh4.5.0</version>-->
+        <!--</dependency>-->
         <dependency>
             <!-- LineReader's readCustomLine has a bug, patched using latest version
                 BUG: LineReader reads in 4K buffers, and if last character of the buffer is < from open tag <page>
@@ -138,11 +137,11 @@ http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
             <version>1.2.2a</version>
         </dependency>
 
-        <dependency> <!--StreamXmlRecordReader-->
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-streaming</artifactId>
-            <version>2.0.0-cdh4.5.0</version>
-        </dependency>
+        <!--<dependency> &lt;!&ndash;StreamXmlRecordReader&ndash;&gt;-->
+            <!--<groupId>org.apache.hadoop</groupId>-->
+            <!--<artifactId>hadoop-streaming</artifactId>-->
+            <!--<version>2.0.0-cdh4.5.0</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.apache.lucene</groupId>
@@ -176,6 +175,13 @@ http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
                         <additionalClasspathElement>/usr/lib/hadoop-mapreduce/lib/*</additionalClasspathElement>
                         <additionalClasspathElement>/usr/lib/hadoop-mapreduce/.//*</additionalClasspathElement>
                     </additionalClasspathElements>
+
+                    <systemPropertyVariables>
+                        <java.library.path>/usr/lib/hadoop/lib/native</java.library.path>
+                    </systemPropertyVariables>
+
+
+
                 </configuration>
             </plugin>
 

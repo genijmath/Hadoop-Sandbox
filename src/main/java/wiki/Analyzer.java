@@ -36,7 +36,8 @@ public class Analyzer {
     }
 
     /**
-     *
+     * Removes non-words including special html characters (&...; like &quot;)
+     * Takes care of &amp;nbsp;
      * @param page single wiki page
      * @param len length of the input page
      * @return length of page using single space as word separator
@@ -45,6 +46,17 @@ public class Analyzer {
         int pointer = 0;
         boolean separtor = true;
         for(int i = 0; i < len; i++){
+
+            if (page[i] == '&'){
+                if (i + 4 < len && page[i+1] == 'a' && page[i+2]=='m' && page[i+3]=='p' && page[i+4]==';'){
+                    i+=5;
+                }
+
+                while(i < len && page[i] != ';')
+                    i++;
+                continue;
+            }
+
             boolean isLetter = letters[(int) page[i] & 0xFF];
             if ((!isLetter) && separtor)
                 continue;
@@ -59,6 +71,8 @@ public class Analyzer {
         return pointer;
     }
 
+
+
     /**
      * Removes:
      * Text before <text xml:space="preserve">
@@ -72,6 +86,9 @@ public class Analyzer {
      * References tagged by <ref ...</ref>     -- removes citations
      * &lt;gallery&gt; ... &lt;/gallery&gt;
      * more generally, all text between &lt; and 'matching' &gt;
+     * Removes: #REDIRECT articles
+     *
+     * Does not remove: tables (TODO)
      * @param page single wiki page
      * @param len actual length of the wiki page
      * @param removeStart indicates if we should consider only chars after<text xml:space="preserve">
@@ -106,6 +123,15 @@ public class Analyzer {
         int pointer = 0;
         boolean newLine = true;
 
+        end++;
+        while(end < len && page[end] == ' ')
+            end++;
+        if (end + 8 < len && page[end]=='#' && page[end+1]=='R' && page[end+2]=='E' && page[end+3]=='D' && page[end+8]=='T')//#REDIRECT
+            return 0;
+        if (end + 8 < len && page[end]=='#' && page[end+1]=='r' && page[end+2]=='e' && page[end+3]=='d' && page[end+8]=='t')//#redirect
+            return 0;
+
+
 
         //first byte is used as a counter, so it is initialized as \1
         byte[] ltBytes = "\1&lt;".getBytes();
@@ -114,12 +140,12 @@ public class Analyzer {
         byte[] bracketBytes = "\1[[".getBytes();
         byte[] httpBytes = "\1[http://".getBytes();
 
-
         byte[][] tags = new byte[][]{ltBytes, braceBytes, endText, bracketBytes, httpBytes};
         byte[] gtBytes = "\1&gt;".getBytes();//temp buffer
+        byte[] closeComment = "\1--&gt;".getBytes();
 
         I:
-        for(int i = end+1; i < len; i++){
+        for(int i = end; i < len; i++){
             byte b = page[i];
 
             if (newLine && b == ' ') continue;
@@ -179,7 +205,7 @@ public class Analyzer {
                     int rc = getClosePosition(page, len, i+1, (byte)'[', (byte)']');//returns position of the character after }}
                     if (rc!=-1){
                         i = rc - 1;
-                        pointer -= 2;
+                        pointer -= 1;
                         continue I;
                     }
                 }
@@ -190,7 +216,7 @@ public class Analyzer {
                 for(int j = i + 1; j < len; j++){
                     if (page[j] == ']'){
                         i = j;
-                        pointer -= (httpBytes.length - 1);
+                        pointer -= (httpBytes.length - 2);
                         continue I;
                     }
                 }
@@ -203,8 +229,34 @@ public class Analyzer {
                     e++;
                 if (e < len && e != i+1){
                     int rc = getCloseTag(page, len, i+1, e, e, gtBytes);//tag is given by page[i+1: e)
+
                     if (rc != -1){
+                        if (keepTheTag(page, i+1, e)){
+                            eraseTag(page, i-3, len, e);
+                            eraseTag(page, i-3, len, rc-4);
+                            pointer -= 3;
+                            continue I;
+                        }
+
                         i = rc - 1;
+                        pointer -= 3;
+                        continue I;
+                    }
+                }else{
+                    if (e+2 < len && page[e]=='!' && page[e+1]=='-' && page[e+2]=='-'){
+                        //remove <!-- ... -->
+                        closeComment[0] = 1;
+                        e -= 3;
+                        do{
+                            if (closeComment[closeComment[0]] == page[e]){
+                                closeComment[0]++;
+                            }else{
+                                closeComment[0] = 1;
+                            }
+                            e++;
+                        }
+                        while(e < len && closeComment[0] != closeComment.length);
+                        i = e - 1;
                         pointer -= 3;
                         continue I;
                     }
@@ -217,6 +269,51 @@ public class Analyzer {
         }
         return pointer;
     }
+
+    private static int calcHash(byte[] arr, int start, int end){
+        int hash = 0;
+        for(int i = start; i < end; i++){
+            hash = hash * 27 + arr[i];
+        }
+        return hash;
+    }
+
+    private static int calcHash(byte[] arr){
+        return calcHash(arr, 0, arr.length);
+    }
+
+    static int blockquote = calcHash("blockquote".getBytes());
+    private static boolean keepTheTag(byte[] page, int start, int end){
+        //returns true if we do not want to throw away tag content
+        int hash = calcHash(page, start, end);
+        return hash == blockquote;
+    }
+
+    /**
+     *  Starting with <i>in</i> it replaces chars with '_' to the left and right until &lt; or &gt; is found
+     */
+    private static void eraseTag(byte[] page, int low, int high, int in){
+        int start = -1;
+        int end = -1;
+        for(int i = in; i < high-3; i++){
+            if (page[i] == '&' && page[i+1] == 'g' && page[i+2]=='t' && page[i+3]==';'){
+                end = i+3;
+                break;
+            }
+        }
+        for(int i = in-3; i >= low; i--){
+            if (page[i] =='&' && page[i+1] == 'l' && page[i+2]=='t' && page[i+3] == ';'){
+                start = i;
+            }
+        }
+
+        if (start != -1 && end != -1){
+            for(int i = start; i <= end; i++)
+                page[i] = '_';
+        }
+    }
+
+
 
     private static int getCloseTag(byte[] page, int len, int s, int e, int start, byte[] gtBytes){
         gtBytes[0] = 1;

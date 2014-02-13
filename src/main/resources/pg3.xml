@@ -1,0 +1,20 @@
+<page>
+    <title>1st Timothy</title>
+    <ns>0</ns>
+    <id>11386</id>
+    <redirect title="First Epistle to Timothy" />
+    <revision>
+        <id>78461472</id>
+        <parentid>68865479</parentid>
+        <timestamp>2006-09-29T07:39:25Z</timestamp>
+        <contributor>
+            <username>Eliyak</username>
+            <id>748161</id>
+        </contributor>
+        <comment>[[First Epistle to Timothy]]</comment>
+        <text xml:space="preserve">#REDIRECT [[First Epistle to Timothy]]</text>
+        <sha1>eutcny3qqqni6dh9o6ier7q90545r54</sha1>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+    </revision>
+</page>
