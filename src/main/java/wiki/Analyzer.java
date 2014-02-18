@@ -83,7 +83,7 @@ public class Analyzer {
      * [[File: .... [[  ....  ]]  .... ]]
      * [[Image: .... [[  ....  ]]  .... ]]
      * More generally: [[\w*: ... ]]
-     * References tagged by <ref ...</ref>     -- removes citations
+     * References tagged by <ref ...</ref>     -- removes citations  -- ignoring <br>
      * &lt;gallery&gt; ... &lt;/gallery&gt;
      * more generally, all text between &lt; and 'matching' &gt;
      * Removes: #REDIRECT articles
@@ -228,7 +228,27 @@ public class Analyzer {
                 while(e < len && letters[(int) page[e] & 0xFF])
                     e++;
                 if (e < len && e != i+1){
-                    int rc = getCloseTag(page, len, i+1, e, e, gtBytes);//tag is given by page[i+1: e)
+                    int rc = 0;
+                    try{
+                        if (e == i + 3 && ( //<br>
+                                (page[i+1]=='b' && page[i+2] == 'r')||
+                                (page[i+1]=='B' && page[i+2] == 'R'))){
+                            pointer -= 3;
+                            i = e;
+                            continue I;
+                        }
+
+
+                        rc = getCloseTag(page, len, i+1, e, e, gtBytes);//tag is given by page[i+1: e)
+                    }catch (StackOverflowError ex){
+                        System.out.println("getCloseTagLoop: ");
+                        System.out.println(new String(page, 0, len));
+                        System.out.println();
+                        System.out.println(new String(page, i+1, e-(i+1)));
+                        System.out.flush();
+                        throw ex;
+                    }
+
 
                     if (rc != -1){
                         if (keepTheTag(page, i+1, e)){
@@ -317,7 +337,7 @@ public class Analyzer {
 
     private static int getCloseTag(byte[] page, int len, int s, int e, int start, byte[] gtBytes){
         gtBytes[0] = 1;
-        int i = 0;
+        int i = start;
         for(i = start; i < len; i++){//search for />
             if (gtBytes[gtBytes[0]] == page[i]){
                 gtBytes[0]++;
@@ -356,6 +376,7 @@ public class Analyzer {
                     int rc = getCloseTag(page, len, s, e, p, gtBytes);
                     if (rc == -1)
                         return -1;
+
                     i = rc;
                     continue;
                 }

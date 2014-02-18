@@ -45,42 +45,17 @@ public class ETL {
     /**
      * Input wiki .bzip2 file is converted into a sequence file of cleaned pages
      * Title->page content
-     * Snappy compression
+     * gzip compression
      */
 
 
     static class Import{
 
-        /**
-         * Private field 'length' of Text will be modified after serialization
-         */
-        static class CutText extends Text{
-            private int writeLength;
-            private Text text;
 
-            public int getWriteLength(){
-                return writeLength;
-            }
-            public void setWriteLength(int length){
-                writeLength = length;
-            }
-
-            public void write(DataOutput out) throws IOException {
-                WritableUtils.writeVInt(out, writeLength);
-                if (text != null)
-                    out.write(text.getBytes(), 0, writeLength);
-                else
-                    out.write(this.getBytes(), 0, this.getLength());
-            }
-
-            void wrap(Text text){
-                this.text = text;
-            }
-        }
-
-        static class CleanupMapper extends Mapper<LongWritable, Text, Text, CutText>{
+        static class CleanupMapper extends Mapper<LongWritable, Text, Text, Text>{
             Text title = new Text();
-            CutText valueWrapper = new CutText();
+            Text writeValue = new Text();
+
 
 
             @Override
@@ -88,9 +63,9 @@ public class ETL {
                     throws IOException, InterruptedException {
 
                 if (value == null){
-                    System.out.println("NULL VALUE?");
+                    System.out.println("NULL VALUE? unexpected");
+                    throw new RuntimeException("NULL VALUE? unexpected");
                 }
-                valueWrapper.wrap(value);
 
                 if (!extractTitle(value))
                     return;
@@ -100,10 +75,8 @@ public class ETL {
                 if (len <= 0) return;
                 len = Analyzer.cleanNonWords(value.getBytes(), len);
                 if (len <= 0) return;
-                valueWrapper.setWriteLength(len);
-//                value.setWriteLength(len);
-
-                context.write(title, valueWrapper);
+                writeValue.set(value.getBytes(), 0, len);
+                context.write(title, writeValue);
             }
 
             boolean extractTitle(Text txt){
@@ -133,10 +106,8 @@ public class ETL {
                 job.setJarByClass(ETL.class);
                 job.setInputFormatClass(XmlInputFormat.class);
                 job.setMapperClass(CleanupMapper.class);
-                job.setMapOutputKeyClass(Text.class);
-                job.setMapOutputValueClass(CutText.class);
                 job.setOutputKeyClass(Text.class);
-                job.setOutputValueClass(CutText.class);
+                job.setOutputValueClass(Text.class);
                 XmlInputFormat.addInputPath(job, new Path(args[0]));
 
 //                TextOutputFormat.setOutputPath(job, new Path(args[1]));

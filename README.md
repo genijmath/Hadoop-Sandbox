@@ -24,7 +24,7 @@ http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-
 but then some changes were applied to config files (hadoop_cfg folder contains configuraiton files)
 
 The goal is to run some unit tests using local job tracker, and some jobs on pseudo-cluster.
-Default pseudo-cluster configuration is included into hadoop_cfg folder
+Default pseudo-cluster configuration is included into hadoop_cfg folder (/etc/hadoop/conf is a soft-link to hadoop_cfg)
 
 Maven is configured to use Claudera repository:
                 <repository>
@@ -73,10 +73,6 @@ Going with only 6 mappers reduces runtime as well because of the smaller amount 
 
 For future analysis I want to get pages extracted and cleaned from XML tags/wiki mark-up.
 Analyzer.cleanupPage + Analyzer.cleanNonWords does precisely that in an efficient manner.
-
-CutText class introduced is a weird animal to get around of the fact that Text does not have setLength property
-and Text.length variable is declared as private. It pretends to be Text when serializes. Minor optimization with
-a terrible design approach. Have fun. Text.setLength probably should be provided.
 
 For word stem analysis, Lucene libraries are used:
 http://lucene.apache.org/core/4_4_0/core/org/apache/lucene/analysis/package-summary.html
