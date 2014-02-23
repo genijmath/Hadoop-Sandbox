@@ -78,6 +78,16 @@ For word stem analysis, Lucene libraries are used:
 http://lucene.apache.org/core/4_4_0/core/org/apache/lucene/analysis/package-summary.html
 
 
+
+
+Wiki data is processing:
+
+ETL.Import: takes original wiki data, and converts into [Title->cleaned page content] sequence file, gzip
+ETL.WordStem: takes ETL.Import output and generates [Title->word-stems only] sequence file, gzip
+ETL.WordCount: takes ETL.WordStem output and generates word-counts.
+  NOTE: currently handles small tests nicely, but processing of the full data fails with
+  "GC overhead limit exceeded"
+
 #git push hadoop master
 
 

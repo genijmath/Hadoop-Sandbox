@@ -16,21 +16,29 @@
 
 package wiki;
 
+import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.fs.FileStatus;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.PathFilter;
 import org.apache.hadoop.io.*;
+import org.apache.hadoop.io.compress.GzipCodec;
+import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.lucene.analysis.*;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
-import org.apache.lucene.util.Version;
-import org.tartarus.snowball.ext.PorterStemmer;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
-import java.io.StringReader;
 import java.util.*;
 
 
 public class WordCount {
-    static class WCMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+
+    static class WCMapper extends Mapper<Text, Text, Text, IntWritable> {
         Map<String, Integer> wc = new HashMap<String, Integer>();
         Text key = new Text();
         IntWritable value = new IntWritable();
@@ -52,31 +60,17 @@ public class WordCount {
         }
 
 
-        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-            org.apache.lucene.analysis.Analyzer analyzer = new StandardAnalyzer(Version.valueOf("LUCENE_44"));
-            TokenStream ts = analyzer.tokenStream("myfield",
-                    new StringReader(value.toString()));
-
-            CharTermAttribute term = ts.addAttribute(CharTermAttribute.class);
-            PorterStemmer stem = new PorterStemmer();
-
-            try {
-                ts.reset(); // Resets this stream to the beginning. (Required)
-                while (ts.incrementToken()) {
-                    stem.setCurrent(term.buffer(), term.length());
-                    stem.stem();
-                    String word = stem.getCurrent();
-                    Integer cnt = wc.get(word);
-                    if (cnt == null){
-                        cnt = 0;
-                    }
-                    wc.put(word, cnt + 1);
-
-                    manageWC(context);
+        protected void map(Text key, Text value, Context context) throws IOException, InterruptedException {
+            StringTokenizer tokenizer = new StringTokenizer(value.toString(), " ", false);
+            while (tokenizer.hasMoreTokens()){
+                String word = tokenizer.nextToken();
+                Integer cnt = wc.get(word);
+                if (cnt == null){
+                    cnt = 0;
                 }
-                ts.end();   // Perform end-of-stream operations, e.g. set the final offset.
-            } finally {
-                ts.close(); // Release resources associated with this stream.
+                wc.put(word, cnt + 1);
+
+                manageWC(context);
             }
         }
 
@@ -103,4 +97,129 @@ public class WordCount {
             }
         }
     }
+
+    static class WCCombiner extends Reducer<Text, IntWritable, Text, IntWritable>{
+        IntWritable value = new IntWritable();
+
+        @Override
+        protected void reduce(Text key, Iterable<IntWritable> values, Context context)
+                throws IOException, InterruptedException {
+            int sum = 0;
+            for(IntWritable value: values){
+                sum += value.get();
+            }
+            value.set(sum);
+            context.write(key, value);
+        }
+    }
+
+    static class WCReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
+        IntWritable value = new IntWritable();
+        Text key = new Text();
+        final int N_FREQ_WRDS = 10000;
+
+        static class WordFrequency implements Comparable<WordFrequency>{
+            String word;
+            int freq;
+
+            WordFrequency(String word, int freq){
+                this.word = word;
+                this.freq = freq;
+            }
+
+            @Override
+            public int compareTo(WordFrequency o) {
+                return this.freq - o.freq;
+            }
+        }
+
+        PriorityQueue<WordFrequency> freq_words = new PriorityQueue<WordFrequency>(100);
+
+        private MultipleOutputs<Text, IntWritable> multipleOutputs;
+
+        @Override
+        protected void setup(Context context){
+            multipleOutputs = new MultipleOutputs<Text, IntWritable>(context);
+        }
+
+        @Override
+        protected void reduce(Text key, Iterable<IntWritable> values, Context context)
+                throws IOException, InterruptedException {
+            int sum = 0;
+            for(IntWritable value: values){
+                sum += value.get();
+            }
+            value.set(sum);
+            multipleOutputs.write(key, value, "all-freq");
+
+            if (freq_words.size() < N_FREQ_WRDS){
+                freq_words.add(new WordFrequency(key.toString(), sum));
+            }else{
+                WordFrequency wf = freq_words.peek();
+                if (wf.freq < sum){
+                    freq_words.poll();
+                    freq_words.add(new WordFrequency(key.toString(), sum));
+                }
+            }
+        }
+
+        @Override
+        protected void cleanup(Context context) throws IOException, InterruptedException {
+            WordFrequency[] words = new WordFrequency[freq_words.size()];
+            int count = 0;
+            while(freq_words.size() > 0){
+                WordFrequency wf = freq_words.poll();
+                words[count++] = wf;
+            }
+            for(int i = words.length-1; i>=0; i--){
+                key.set(words[i].word);
+                value.set(words[i].freq);
+                multipleOutputs.write(key, value, "max-freq");
+            }
+
+            multipleOutputs.close();
+
+        }
+    }
+
+    static class WCDriver extends Configured implements Tool {
+
+        @Override
+        public int run(String[] args) throws Exception {
+            if (args.length != 2){
+                System.out.print("Word-count usage: <input> <output>");
+                ToolRunner.printGenericCommandUsage(System.out);
+                System.exit(1);
+            }
+
+            Job job = Job.getInstance(getConf());
+            job.setJobName("word count");
+            job.setJarByClass(WordCount.class);
+            job.setInputFormatClass(SequenceFileInputFormat.class);
+            job.setOutputFormatClass(TextOutputFormat.class);
+
+            job.setMapperClass(WCMapper.class);
+            job.setCombinerClass(WCCombiner.class);
+            job.setReducerClass(WCReducer.class);
+
+            job.setOutputKeyClass(Text.class);
+            job.setOutputValueClass(IntWritable.class);
+
+
+            //SequenceFileInputFormat.addInputPath(job, new Path(args[0]));
+            FileSystem fs = FileSystem.get(getConf());
+            for(FileStatus fstat: fs.globStatus(new Path(args[0], "*-r-*"))){
+                SequenceFileInputFormat.addInputPath(job, fstat.getPath());
+            }
+
+            TextOutputFormat.setOutputPath(job, new Path(args[1]));
+            TextOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
+            //TextOutputFormat.setCompressOutput(job, true);
+
+
+            boolean rc = job.waitForCompletion(true);
+            return (rc) ? 0 : 1;
+        }
+    }
+
 }

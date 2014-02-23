@@ -28,7 +28,7 @@ import static org.junit.Assert.assertEquals;
  * limitations under the License.
  */
 public class TestGeneric {
-    private static final Log LOG = LogFactory.getLog(PageTitlesTest.class);
+    private static final Log LOG = LogFactory.getLog(TestGeneric.class);
 
 
     void addJarToClasspath(Configuration conf) throws IOException, InterruptedException {
@@ -57,6 +57,10 @@ public class TestGeneric {
     void makeJobCluster(Configuration conf) throws IOException, InterruptedException {
         commonSettings(conf);
         addJarToClasspath(conf);
+        updateYarnClasspath(conf);
+    }
+
+    void updateYarnClasspath(Configuration conf) {
     }
 
     void printConf(Configuration conf){
