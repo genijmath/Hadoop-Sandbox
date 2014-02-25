@@ -85,10 +85,13 @@ public class ETL {
                 int len = value.getLength();
                 len = Analyzer.cleanupPage(value.getBytes(), len, true);
                 if (len <= 0) return;
+
                 len = Analyzer.cleanNonWords(value.getBytes(), len);
                 if (len <= 0) return;
+
                 writeValue.set(value.getBytes(), 0, len);
                 context.write(title, writeValue);
+
             }
 
             boolean extractTitle(Text txt){

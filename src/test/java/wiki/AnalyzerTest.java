@@ -195,9 +195,6 @@ public class AnalyzerTest {
         page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg3.xml")).useDelimiter("\\A").next();
         bs = page.getBytes();
         len = Analyzer.cleanupPage(bs, page.length(), true);
-        System.out.println(new String(bs, 0, len));
         assertEquals(0, len);
     }
-
-
 }

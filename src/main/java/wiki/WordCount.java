@@ -246,17 +246,18 @@ public class WordCount {
 
         protected void map(Text key, Text value, Context context) throws IOException, InterruptedException {
             byte[] text = value.getBytes();
+            int len = value.getLength();
             int start = 0;
             while(true){
-                while(start < text.length && text[start] == ' ')
+                while(start < len && text[start] == ' ')
                     start++;
 
-                if (start == text.length){
+                if (start == len){
                     return;
                 }
 
                 int end = start;
-                while(end < text.length && text[end] != ' ')
+                while(end < len && text[end] != ' ')
                     end++;
 
                 if (end - start >= wc.MAX_WORD_LEN_PLUS_1){//word is too long -- just write it out
@@ -268,7 +269,6 @@ public class WordCount {
                 }
                 start = end;
             }
-
         }
     }
 
