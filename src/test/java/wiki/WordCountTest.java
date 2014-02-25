@@ -20,11 +20,15 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
 
 import java.io.File;
+import java.net.URI;
 import java.util.*;
+
+import org.apache.hadoop.security.Credentials;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -48,12 +52,10 @@ public class WordCountTest extends TestGeneric{
     @Test
     public void testMapper() throws IOException {
         mapDriver.withInput(new Text("article_nm"), new Text(
-                "little pig was running across the street little by little"));
-        mapDriver.withOutput(new Text("littl"), new IntWritable(3));
-        mapDriver.withOutput(new Text("street"), new IntWritable(1));
-        mapDriver.withOutput(new Text("run"), new IntWritable(1));
-        mapDriver.withOutput(new Text("across"), new IntWritable(1));
+                "little little pig the little"));
+        mapDriver.withOutput(new Text("the"), new IntWritable(1));
         mapDriver.withOutput(new Text("pig"), new IntWritable(1));
+        mapDriver.withOutput(new Text("little"), new IntWritable(3));
         mapDriver.runTest();
     }
 
@@ -125,6 +127,308 @@ public class WordCountTest extends TestGeneric{
         conf.set("mapreduce.reduce.speculative", "false");
 
         assertEquals(0, driver.run(new String[]{inpath, outpath}));
+    }
+
+    static class WordCacheTestIO implements MapContext<Text, Text, Text, IntWritable> {
+        HashMap<String, Integer> result = new HashMap<String, Integer>();
+
+        @Override
+        public InputSplit getInputSplit() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public boolean nextKeyValue() throws IOException, InterruptedException {
+            return false;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Text getCurrentKey() throws IOException, InterruptedException {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Text getCurrentValue() throws IOException, InterruptedException {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public void write(Text key, IntWritable value) throws IOException, InterruptedException {
+            //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public OutputCommitter getOutputCommitter() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public TaskAttemptID getTaskAttemptID() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public void setStatus(String msg) {
+            //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public String getStatus() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public float getProgress() {
+            return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Counter getCounter(Enum<?> counterName) {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Counter getCounter(String groupName, String counterName) {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Configuration getConfiguration() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Credentials getCredentials() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public JobID getJobID() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public int getNumReduceTasks() {
+            return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Path getWorkingDirectory() throws IOException {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Class<?> getOutputKeyClass() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Class<?> getOutputValueClass() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Class<?> getMapOutputKeyClass() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Class<?> getMapOutputValueClass() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public String getJobName() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public boolean userClassesTakesPrecedence() {
+            return false;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Class<? extends InputFormat<?, ?>> getInputFormatClass() throws ClassNotFoundException {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Class<? extends Mapper<?, ?, ?, ?>> getMapperClass() throws ClassNotFoundException {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Class<? extends Reducer<?, ?, ?, ?>> getCombinerClass() throws ClassNotFoundException {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Class<? extends Reducer<?, ?, ?, ?>> getReducerClass() throws ClassNotFoundException {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Class<? extends OutputFormat<?, ?>> getOutputFormatClass() throws ClassNotFoundException {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Class<? extends Partitioner<?, ?>> getPartitionerClass() throws ClassNotFoundException {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public RawComparator<?> getSortComparator() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public String getJar() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public RawComparator<?> getGroupingComparator() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public boolean getJobSetupCleanupNeeded() {
+            return false;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public boolean getTaskCleanupNeeded() {
+            return false;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public boolean getProfileEnabled() {
+            return false;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public String getProfileParams() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Configuration.IntegerRanges getProfileTaskRange(boolean isMap) {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public String getUser() {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public boolean getSymlink() {
+            return false;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Path[] getArchiveClassPaths() {
+            return new Path[0];  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public URI[] getCacheArchives() throws IOException {
+            return new URI[0];  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public URI[] getCacheFiles() throws IOException {
+            return new URI[0];  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Path[] getLocalCacheArchives() throws IOException {
+            return new Path[0];  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Path[] getLocalCacheFiles() throws IOException {
+            return new Path[0];  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Path[] getFileClassPaths() {
+            return new Path[0];  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public String[] getArchiveTimestamps() {
+            return new String[0];  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public String[] getFileTimestamps() {
+            return new String[0];  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public int getMaxMapAttempts() {
+            return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public int getMaxReduceAttempts() {
+            return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public void progress() {
+            //To change body of implemented methods use File | Settings | File Templates.
+        }
+    }
+    @Test
+    public void testWordCache() throws IOException, InterruptedException {
+        WordCount.WordCache wc;
+        wc = new WordCount.WordCache(null, 1<<3, 15);
+
+        wc.incWordCount("stu".getBytes(), 0, 3);
+        assertEquals(1, wc.getWordCount("stu".getBytes(), 0, 3));
+        wc.incWordCount("stu".getBytes(), 0, 3);
+        assertEquals(2, wc.getWordCount("stu".getBytes(), 0, 3));
+        wc.incWordCount("cab".getBytes(), 0, 3);//stu and cab has hash-code (wc.hashCode1) = 4
+
+        byte[] text = ( "abcdefghijklmnopqrstuvxyz" +
+                        "abcdefghijklmnopqrstuvxyz" +
+                        "abcdefghijklmnopqrstuvxyz" +
+                        "abcdefghijklmnopqrstuvxyz" +
+                        "abc").getBytes();
+
+        WordCacheTestIO context = new WordCacheTestIO(){
+            @Override
+            public void write(Text key, IntWritable value) throws IOException, InterruptedException {
+                Integer val = result.get(key.toString());
+                if (val == null){
+                    val = 0;
+                }
+                result.put(key.toString(), val+1);
+            }
+        };
+
+
+        wc = new WordCount.WordCache(context, 1<<3, 15);
+
+        for(int i = 0; i < text.length; i++){
+            wc.incWordCount(text, i, i+1);
+        }
+
+        wc.flush();
+
+        assertEquals(context.result.size(), "abcdefghijklmnopqrstuvxyz".length());
+        for(char c: "defghijklmnopqrstuvxyz".toCharArray()){
+            assertEquals(context.result.get("" + c), (Integer) 4);
+        }
+        for(char c: "abc".toCharArray()){
+            assertEquals(context.result.get("" + c), (Integer) 5);
+        }
+
+
+
     }
 
 

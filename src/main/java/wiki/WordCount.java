@@ -20,10 +20,10 @@ import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.fs.PathFilter;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.MapContext;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
@@ -38,63 +38,237 @@ import java.util.*;
 
 public class WordCount {
 
-    static class WCMapper extends Mapper<Text, Text, Text, IntWritable> {
-        Map<String, Integer> wc = new HashMap<String, Integer>();
+    static class WordCache{
+        //HashMap boxing creates overhead
+        //What is implemented here is an open addressing hash table using double hashing
+        //see "Introduction to Algorithms", (Chapter: Hash Tables)
+        //Some adjustment was made so that hash never was getting into an overflow situation:
+        //If hash table is 75% full then 10% of elements that were not recently used
+        //are written to 'context' and removed
+
+        final int CAP;//hold CAP words in-memory, must be power of 2 (open addressing hash used)
+        final int MAX_WORD_LEN_PLUS_1;//words longer than MAX_WORD_LEN_PLUS_1-1 won't be cached; 0 at the end of the word!
+        final int CAP_M;//=CAP*MAX_WORD_LEN_PLUS_1
+
+        byte[] words;  //new byte[CAP * MAX_WORD_LEN_PLUS_1]
+        int[] counts; //how many time word was observed
+        long[] lastUsed;//when this word count was updated the last time
+        long[] buffer;//temp buffer for sorting
+        long lastUsedSeq = 0;//time-line for lastUsed
+        int hashLoad = 0; //how many elements are in the hash table
+
         Text key = new Text();
         IntWritable value = new IntWritable();
-        int lim=3;
-        final int CAP = 1000000;
+
+        MapContext<Text, Text, Text, IntWritable> context = null;
+
+        WordCache(MapContext<Text, Text, Text, IntWritable> context){
+            this(context, 1<<20, 15);
+        }
+
+        WordCache(MapContext<Text, Text, Text, IntWritable> context, int CAP, int MAX_WORD_LEN_PLUS_1){
+            this.CAP = CAP;
+            this.MAX_WORD_LEN_PLUS_1 = MAX_WORD_LEN_PLUS_1;
+            this.CAP_M = CAP * MAX_WORD_LEN_PLUS_1;
+
+            words = new byte[CAP * MAX_WORD_LEN_PLUS_1];
+            counts = new int[CAP];
+            lastUsed = new long[CAP];
+            buffer = new long[CAP];//temp buffer for sorting
+
+            this.context = context;
+            Arrays.fill(words, (byte) 'x');//zero is used to detect end-of-the word, see 'same word' implementation
+            for(int i = 0; i < words.length; i += MAX_WORD_LEN_PLUS_1)
+                words[i] = 0;
+        }
+
+
+        void incWordCount(byte[] text, int start, int end) throws IOException, InterruptedException {
+            //increases word count by 1, and writes part of the hash to context if hash is getting too loaded
+
+            assert end - start < MAX_WORD_LEN_PLUS_1 : "Word too long!";
+
+            int h1 = hashCode1(text, start, end) % CAP;
+            int h2 = hashCode2(text, start, end) % CAP;
+
+
+            int count = 0;
+
+            int pos = h1 * MAX_WORD_LEN_PLUS_1;
+            int h2M = h2 * MAX_WORD_LEN_PLUS_1;
+            final int CAP_M = CAP * MAX_WORD_LEN_PLUS_1;
+            int iPos = h1;
+
+            do{
+                if (words[pos] == 0){//empty slot
+                    for(int i = start; i < end; i++){
+                        words[pos + i -start] = text[i];
+                    }
+                    words[pos + end-start] = 0;
+                    counts[iPos] = 1;
+                    hashLoad++;
+                    lastUsed[iPos] = lastUsedSeq++;
+                    return;
+                }else{
+                    //same words?
+                    if (words[pos + end-start] == 0){//this is why settings words[..]='x' is important
+                        boolean same = true;
+                        for(int i = start; i < end; i++){
+                            if (words[pos + i-start] != text[i]){
+                                same = false;
+                                break;
+                            }
+                        }
+                        if (same){
+                            counts[iPos] += 1;
+                            lastUsed[iPos] = lastUsedSeq++;
+                            return;
+                        }
+                    }
+                }
+
+                pos = (pos + h2M) % CAP_M;//Try next slot
+                iPos = (iPos + h2) % CAP;
+                count++;
+
+
+                if (4*hashLoad >= 3*CAP){//75% full
+                    //remove 10% of elements which were not used for a long time
+                    int p = 0;
+                    for(int i = 0, k = 0; i < words.length; i+=MAX_WORD_LEN_PLUS_1, k++){
+                        if (words[i] != 0){
+                            buffer[p++] = lastUsed[k];
+                        }
+                    }
+                    Arrays.sort(buffer, 0, p);
+                    long cutoff = buffer[p/10];
+
+                    flush(cutoff);
+
+                    //reset
+                    count = 0;
+                    pos = h1 * MAX_WORD_LEN_PLUS_1;
+                    iPos = h1;
+                }
+            } while(count < CAP);
+            throw new RuntimeException("Should not be here");
+        }
+
+        void flush() throws  IOException, InterruptedException{
+            flush(Long.MAX_VALUE);
+        }
+
+        void flush(long cutoff) throws IOException, InterruptedException {
+            for(int i = 0, k = 0; i < words.length; i+=MAX_WORD_LEN_PLUS_1, k++){
+                if (words[i] != 0  && lastUsed[k] <= cutoff){
+                    int wordEnd = i;
+                    while(words[wordEnd] != 0) wordEnd++;
+                    words[wordEnd] = 'x';
+                    key.set(words, i, wordEnd - i);
+                    value.set(counts[k]);
+                    context.write(key, value);
+                    words[i] = 0;//remove word
+                    hashLoad--;
+                }
+            }
+
+        }
+
+        int getWordCount(byte[] text, int start, int end){
+            assert end - start < MAX_WORD_LEN_PLUS_1 : "Word too long!";
+
+            int h1 = hashCode1(text, start, end) % CAP;
+            int h2 = hashCode2(text, start, end) % CAP;
+
+
+            int count = 0;
+            int pos = h1 * MAX_WORD_LEN_PLUS_1;
+            int h2M = h2 * MAX_WORD_LEN_PLUS_1;
+
+            int iPos = h1;
+
+            do{
+                //same words?
+                if (words[pos+end-start] == 0){
+                    boolean same = true;
+                    for(int i = start; i < end; i++){
+                        if (words[pos + i-start] != text[i]){
+                            same = false;
+                            break;
+                        }
+                    }
+                    if (same){
+                        return counts[iPos];
+                    }
+                }
+
+                pos = (pos + h2M) % CAP_M;//Try next slot
+                iPos = (iPos + h2) % CAP;
+                count++;
+
+            } while(count < CAP);
+            return -1;
+        }
+
+        int hashCode1(byte[] text, int start, int end){
+            int hashCode = 0;
+            for(int i = start; i < end; i++){
+                hashCode = hashCode * 31 + text[i];
+            }
+            return hashCode & Integer.MAX_VALUE; //non-negative
+        }
+
+        int hashCode2(byte[] text, int start, int end){
+            int hashCode = 0;
+            for(int i = start; i < end; i++){
+                hashCode = hashCode * 29 + text[i];
+            }
+            return (hashCode | 1) & Integer.MAX_VALUE; //odd positive
+        }
+
+    }
+
+    static class WCMapper extends Mapper<Text, Text, Text, IntWritable> {
+        WordCache wc;
+        Text key = new Text();
+        IntWritable value = new IntWritable();
 
         protected void setup(Context context
         ) throws IOException, InterruptedException {
-
+            wc = new WordCache(context);
         }
 
         protected void cleanup(Context context
         ) throws IOException, InterruptedException {
-            for(Map.Entry<String, Integer> e: wc.entrySet()){
-                key.set(e.getKey());
-                value.set(e.getValue());
-                context.write(key, value);
-            }
+            wc.flush();
         }
 
 
         protected void map(Text key, Text value, Context context) throws IOException, InterruptedException {
-            StringTokenizer tokenizer = new StringTokenizer(value.toString(), " ", false);
-            while (tokenizer.hasMoreTokens()){
-                String word = tokenizer.nextToken();
-                Integer cnt = wc.get(word);
-                if (cnt == null){
-                    cnt = 0;
+            byte[] text = value.getBytes();
+            int start = 0;
+            while(true){
+                while(start < text.length && text[start] == ' ')
+                    start++;
+
+                if (start == text.length){
+                    return;
                 }
-                wc.put(word, cnt + 1);
 
-                manageWC(context);
-            }
-        }
+                int end = start;
+                while(end < text.length && text[end] != ' ')
+                    end++;
 
-        void manageWC(Context context) throws IOException, InterruptedException {
-
-            int count = 0;
-            while (wc.size() > CAP){
-                Map<String, Integer> keep = new HashMap<String, Integer>();
-                for(Map.Entry<String, Integer> e: wc.entrySet()){
-                    if (e.getValue() < lim){
-                        key.set(e.getKey());
-                        value.set(e.getValue());
-                        context.write(key, value);
-                        count++;
-                    }else{
-                        keep.put(e.getKey(), e.getValue());
-                    }
+                if (end - start >= wc.MAX_WORD_LEN_PLUS_1){//word is too long -- just write it out
+                    this.key.set(text, start, end - start);
+                    this.value.set(1);
+                    context.write(this.key, this.value);
+                }else{
+                    wc.incWordCount(text, start, end); //add to hash
                 }
-                wc = keep;
-                if (wc.size() > CAP ||
-                        (10 * count < CAP) //too little output
-                        )
-                    lim++;
+                start = end;
             }
+
         }
     }
 
