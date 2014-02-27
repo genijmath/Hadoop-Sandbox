@@ -37,143 +37,163 @@ public class AnalyzerTest {
         s = "abc";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("abc", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abc", new String(bs, 0, len));
 
         s = "    *    [[abc   ]]def";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("*    [[abc   ]]def", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("*    [[abc   ]]def", new String(bs, 0, len));
 
         s = "x   *    [[abc   ]]def";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals(s, new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals(s, new String(bs, 0, len));
 
         s = "x   *    [[abc   ]]def\n*[[ XYZ]]TX";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("x   *    [[abc   ]]def\n*[[ XYZ]]TX", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("x   *    [[abc   ]]def\n*[[ XYZ]]TX", new String(bs, 0, len));
 
         s = "    *    x{{abc   }}def";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("*    xdef", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("*    xdef", new String(bs, 0, len));
 
         s = "xy*z{{abc   }}def";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("xy*zdef", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("xy*zdef", new String(bs, 0, len));
 
         s = "x   *    {{abc   }}def";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("x   *    def", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("x   *    def", new String(bs, 0, len));
 
         s = "x   *    {{abc   }}def\n*{{ XYZ}}TX";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("x   *    def\n*TX", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("x   *    def\n*TX", new String(bs, 0, len));
 
         s = "[[abc:bla]]d"; //remove!
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("d", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("d", new String(bs, 0, len));
 
         s = "[http://bla]"; //remove!
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("", new String(bs, 0, len));
 
 
         s = "=abc=\nA\n==  def ===\nB\n  c==C=\n  == jjjj  ==   \nF";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("A\nB\nc==C=\nF", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("A\nB\nc==C=\nF", new String(bs, 0, len));
 
 
         s = "  {{xxxx";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("{{xxxx", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("{{xxxx", new String(bs, 0, len));
 
         s = "  {{xx{{yy}}zz";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("{{xxzz", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("{{xxzz", new String(bs, 0, len));
 
 
         s = "  *  [[ x [[ y ]]";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("*  [[ x [[ y ]]", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("*  [[ x [[ y ]]", new String(bs, 0, len));
 
         s = "  *  [[ xy ]]\n[[ab]] x [[cd] {{ rbc }} uv\n==title==\nvdx=rs{tx}{{ttxx}}*[mn]\nrtx";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("*  [[ xy ]]\n[[ab]] x [[cd]  uv\nvdx=rs{tx}*[mn]\nrtx", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("*  [[ xy ]]\n[[ab]] x [[cd]  uv\nvdx=rs{tx}*[mn]\nrtx", new String(bs, 0, len));
 
 
         s = "asfddsaf <text xml:space=\"preserve\">abc";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), true);
-        assertEquals("abc", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abc", new String(bs, 0, len));
 
         s = "abc &lt;ref&gt; bla &lt;/ref&gt;xxx";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("abc xxx", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abc xxx", new String(bs, 0, len));
 
         s = "abc &lt;ref blabla bla /&gt;xxx";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("abc xxx", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abc xxx", new String(bs, 0, len));
 
         s = "abc &lt;ref blabla&gt; bla &lt;/ref&gt;xxx";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("abc xxx", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abc xxx", new String(bs, 0, len));
 
         s = "abc &lt;ref blabla&gt; bla &lt;/ref&gt;";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("abc ", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abc ", new String(bs, 0, len));
 
         //ref in ref
         s = "abc &lt;ref blabla&gt; xxx &lt;ref blabla&gt; bla &lt;/ref&gt; rrr &lt;/ref&gt;xxx";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("abc xxx", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abc xxx", new String(bs, 0, len));
 
         s = "abc &lt;ref blabla&gt; xxx &lt;ref blabla /&gt; rrr &lt;/ref&gt;xxx";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("abc xxx", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abc xxx", new String(bs, 0, len));
 
         s = "abc &lt;ref blabla&gt; xxx &lt;ref&gt; rrr &lt;/ref&gt; rrr &lt;/ref&gt;xxx";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("abc xxx", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abc xxx", new String(bs, 0, len));
 
         s = "xxx</text>yyy";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("xxx", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("xxx", new String(bs, 0, len));
 
         s = "abc&lt;blockquote blabla&gt;XYZ&lt;/blockquote&gt;xxx";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("abc_____________________XYZ___________________xxx", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abc_____________________XYZ___________________xxx", new String(bs, 0, len));
 
 
         s = "abc&lt;!-- xxx --&gt;yyy";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("abcyyy", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("abcyyy", new String(bs, 0, len));
 
         s = "&lt;!-- xxx --&gt;";
         bs = s.getBytes();
         len = Analyzer.cleanupPage(bs, s.length(), false);
-        assertEquals("", new String(bs, 0, len, Charset.defaultCharset()));
+        assertEquals("", new String(bs, 0, len));
+
+        s = "{|BLA|}";
+        bs = s.getBytes();
+        len = Analyzer.cleanupPage(bs, s.length(), false);
+        assertEquals("", new String(bs, 0, len));
+
+        s = "{|B{|L|}A|}";
+        bs = s.getBytes();
+        len = Analyzer.cleanupPage(bs, s.length(), false);
+        assertEquals("", new String(bs, 0, len));
+
+        s = "x{|B{|L|}A|}y";
+        bs = s.getBytes();
+        len = Analyzer.cleanupPage(bs, s.length(), false);
+        assertEquals("xy", new String(bs, 0, len));
+
+        s = "abc{{xxx begin|rrs}} bla {{xxx end}}def";
+        bs = s.getBytes();
+        len = Analyzer.cleanupPage(bs, s.length(), false);
+        assertEquals("abcdef", new String(bs, 0, len));
 
 
         page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg1.xml")).useDelimiter("\\A").next();
@@ -188,13 +208,39 @@ public class AnalyzerTest {
         bs = page.getBytes();
         assertEquals(26589, bs.length);
         len = Analyzer.cleanupPage(bs, page.length(), true);
-        assertEquals(16398, len);
+        assertEquals(15080, len);
         len = Analyzer.cleanNonWords(bs, len);
-        assertEquals(14894, len);
+        assertEquals(13836, len);
 
         page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg3.xml")).useDelimiter("\\A").next();
         bs = page.getBytes();
         len = Analyzer.cleanupPage(bs, page.length(), true);
         assertEquals(0, len);
+
+        page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg4.xml")).useDelimiter("\\A").next();
+        bs = page.getBytes();
+        len = Analyzer.cleanupPage(bs, page.length(), true);
+        assertEquals(30184, len);
+
+        page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg5.xml")).useDelimiter("\\A").next();
+        bs = page.getBytes();
+        len = Analyzer.cleanupPage(bs, page.length(), true);
+        assertEquals(64894, len);
+
+        page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg6.xml")).useDelimiter("\\A").next();
+        bs = page.getBytes();
+        len = Analyzer.cleanupPage(bs, page.length(), true);
+        assertEquals(5406, len);
+
+        page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg7.xml")).useDelimiter("\\A").next();
+        bs = page.getBytes();
+        len = Analyzer.cleanupPage(bs, page.length(), true);
+        assertEquals(13431, len);
+
+        page = new Scanner(AnalyzerTest.class.getResourceAsStream("../pg8.xml")).useDelimiter("\\A").next();
+        bs = page.getBytes();
+        len = Analyzer.cleanupPage(bs, page.length(), true);
+        assertEquals(16555, len);
+
     }
 }

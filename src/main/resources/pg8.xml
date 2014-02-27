@@ -1,0 +1,405 @@
+<page>
+    <title>Hiragana</title>
+    <ns>0</ns>
+    <id>13804</id>
+    <revision>
+        <id>566608524</id>
+        <parentid>565557035</parentid>
+        <timestamp>2013-07-31T18:27:23Z</timestamp>
+        <contributor>
+            <ip>207.114.228.13</ip>
+        </contributor>
+        <comment>/* Writing system */</comment>
+        <text xml:space="preserve">{{Refimprove|date=September 2009}}
+{{stack begin}}
+{{Infobox writing system
+|name=Hiragana&lt;br /&gt;ひらがな
+|type=[[Syllabary]]
+|languages=[[Japanese writing system|Japanese]] and [[Okinawan writing system|Okinawan]]
+|time=~800 AD to the present
+|fam1=[[Oracle Bone Script]]
+|fam2=[[Seal Script]]
+|fam3=[[Clerical Script]]
+|fam4=[[Regular script]] ([[Kanji]])
+|fam5=[[Man'yōgana]]
+|sisters=[[Katakana]], [[Hentaigana]]
+|iso15924=Hira
+|sample=ひ 教科書体.svg
+|unicode=[http://www.unicode.org/charts/PDF/U3040.pdf U+3040-U+309F], &lt;br /&gt;[http://www.unicode.org/charts/PDF/U1B000.pdf U+1B000-U+1B0FF]
+|imagesize=100px
+}}
+{{Japanese writing}}
+{{Calligraphy}}
+{{stack end}}
+{{nihongo|'''Hiragana'''|[[wikt:平仮名|平仮名]], ひらがな or ヒラガナ|}} is a [[Japanese language|Japanese]] [[syllabary]], one basic component of the [[Japanese writing system]], along with [[katakana]], [[kanji]], and in some cases the [[Latin-script alphabet]] (referred to in Japanese as [[rōmaji]]).
+
+Hiragana and katakana are both [[kana]] systems; they have corresponding character sets in which each ''kana'', or character, represents one [[mora (linguistics)|mora]] (one sound in the Japanese language). Each ''kana'' is either a vowel such as ''&quot;a&quot;'' (hiragana [[wikt:あ|あ]]); a consonant followed by a vowel such as ''&quot;ka&quot;'' (hiragana [[wikt:か|か]]); or ''&quot;n&quot;'' (hiragana [[wikt:ん|ん]]), a [[nasal stop|nasal]] [[sonorant]] which, depending on the context, sounds either like English ''m'', ''n'', or ''ng'' ({{IPAblink|ŋ}}), or like the [[nasal vowel]]s of [[French language|French]]. Because the characters of the kana do not represent single consonants (except in the case of ん &quot;n&quot;), the kana are referred to as syllabaries and not alphabets.&lt;ref&gt;{{cite book|title=An Introduction to Modern Japanese: Book 1|year=2004|publisher=Cambridge University Press|location=United Kingdom|isbn=978-0521548878|author=Richard Bowring|coauthors=Haruko Uryu Laurie|page=9}}&lt;/ref&gt;
+
+Hiragana is used to write native words for which there are no [[kanji]], including grammatical [[Japanese particles|particles]] such as {{nowrap|から}} ''kara'' &quot;from&quot;, and suffixes such as {{nowrap|さん}} ''~san'' &quot;Mr., Mrs., Miss, Ms.&quot; Likewise, hiragana is used to write words whose kanji form is obscure, not known to the writer or readers, or too formal for the writing purpose. There is also some flexibility for words that have common kanji renditions to be optionally written instead in hiragana, according to an individual author's preference. [[Okurigana|Verb and adjective inflections]], as, for example, ''be-ma-shi-ta'' {{nowrap|(べました)}} in {{nihongo|''tabemashita''|食べました||&quot;ate&quot;}}, are written in hiragana, often following a verb or adjective root (here, &quot;食&quot;) that is written in kanji. When Hiragana is used to show the [[pronunciation]] of kanji characters as reading aid, it is referred to as ''[[furigana]]''. The article [[Japanese writing system]] discusses in detail how the various systems of writing are used.
+
+There are two main systems of [[Kana#Collation|ordering hiragana]], the old-fashioned [[iroha]] ordering, and the more prevalent [[gojūon]] ordering.
+
+==Writing system==
+{| align=right style=&quot;margin-left:1em;&quot;
+|-
+|
+{| class=&quot;wikitable&quot; border=&quot;0&quot; cellpadding=&quot;2&quot; style=&quot;vertical-align:top;padding:2px;&quot;
+|+ Hiragana base characters
+|-
+! !! ''a'' !!| ''i'' !!| ''u'' !!| ''e'' !!| ''o''
+|- align=center
+!title=&quot;no lead consonant&quot;|∅
+|&lt;big&gt;[[あ]]&lt;/big&gt;||&lt;big&gt;[[い]]&lt;/big&gt;||&lt;big&gt;[[う]]&lt;/big&gt;||&lt;big&gt;[[え]]&lt;/big&gt;||&lt;big&gt;[[お]]&lt;/big&gt;
+|- align=center
+!''k''
+|&lt;big&gt;[[か]]&lt;/big&gt;||&lt;big&gt;[[き]]&lt;/big&gt;||&lt;big&gt;[[く]]&lt;/big&gt;||&lt;big&gt;[[け]]&lt;/big&gt;||&lt;big&gt;[[こ]]&lt;/big&gt;
+|- align=center
+!''s''
+|&lt;big&gt;[[さ]]&lt;/big&gt;||&lt;big&gt;[[し]]&lt;/big&gt;||&lt;big&gt;[[す]]&lt;/big&gt;||&lt;big&gt;[[せ]]&lt;/big&gt;||&lt;big&gt;[[そ]]&lt;/big&gt;
+|- align=center
+!''t''
+|&lt;big&gt;[[た]]&lt;/big&gt;||&lt;big&gt;[[ち]]&lt;/big&gt;||&lt;big&gt;[[つ]]&lt;/big&gt;||&lt;big&gt;[[て]]&lt;/big&gt;||&lt;big&gt;[[と]]&lt;/big&gt;
+|- align=center
+!''n''
+|&lt;big&gt;[[な]]&lt;/big&gt;||&lt;big&gt;[[に]]&lt;/big&gt;||&lt;big&gt;[[ぬ]]&lt;/big&gt;||&lt;big&gt;[[ね]]&lt;/big&gt;||&lt;big&gt;[[の]]&lt;/big&gt;
+|- align=center
+!''h''
+|&lt;big&gt;[[は]]&lt;/big&gt;||&lt;big&gt;[[ひ]]&lt;/big&gt;||&lt;big&gt;[[ふ]]&lt;/big&gt;||&lt;big&gt;[[へ]]&lt;/big&gt;||&lt;big&gt;[[ほ]]&lt;/big&gt;
+|- align=center
+!''m''
+|&lt;big&gt;[[ま]]&lt;/big&gt;||&lt;big&gt;[[み]]&lt;/big&gt;||&lt;big&gt;[[む]]&lt;/big&gt;||&lt;big&gt;[[め]]&lt;/big&gt;||&lt;big&gt;[[も]]&lt;/big&gt;
+|- align=center
+!''y''
+|&lt;big&gt;[[や]]&lt;/big&gt;||bgcolor=&quot;#DDDDF6&quot;| ||&lt;big&gt;[[ゆ]]&lt;/big&gt;||bgcolor=&quot;#DDDDF6&quot;| ||&lt;big&gt;[[よ]]&lt;/big&gt;
+|- align=center
+!''r''
+|&lt;big&gt;[[ら]]&lt;/big&gt;|||&lt;big&gt;[[り]]&lt;/big&gt;||&lt;big&gt;[[る]]&lt;/big&gt;||&lt;big&gt;[[れ]]&lt;/big&gt;||&lt;big&gt;[[ろ]]&lt;/big&gt;
+|- align=center
+!''w''
+|&lt;big&gt;[[わ]]&lt;/big&gt;||bgcolor=&quot;#DDDDF6&quot;|&lt;big&gt;[[ゐ]]&lt;/big&gt;||bgcolor=&quot;#DDDDF6&quot;| ||bgcolor=&quot;#DDDDF6&quot;|&lt;big&gt;[[ゑ]]&lt;/big&gt;||&lt;big&gt;[[を]]&lt;/big&gt;
+|- align=center
+| || colspan=2 | &lt;big&gt;[[ん]]&lt;/big&gt; '''(''N'')''' || colspan=3 |
+|-
+! colspan=&quot;6&quot;| Functional marks&lt;br&gt;and diacritics
+|-
+|&lt;big&gt;[[っ]]&lt;/big&gt;||&lt;big&gt;[[ゝ]]&lt;/big&gt;|| ||&lt;big&gt;[[dakuten|゛]]&lt;/big&gt;||&lt;big&gt;[[dakuten|゜]]&lt;/big&gt;||
+|}
+|-
+| {{colorbox|#DDDDF6;}} ''unused/obsolete''
+|}
+
+The hiragana syllabary consists of 48 characters:
+* 5 singular vowels
+* Notionally, 45 consonant–vowel unions, consisting of 9 consonants in combination with each of the 5 vowels, of which:
+** 2 (''yi'', and ''wu'') are unused
+** 3 (''ye'', ''wi'', and ''we'') are obsolete in modern Japanese
+** 1 (''wo'') is usually pronounced as a vowel (''o'') in modern Japanese, and is preserved in only one use, as a [[grammatical particle|particle]]
+* 1 singular consonant
+
+These are conceived as a 5×10 grid (''[[gojūon]]'', {{nowrap|五十音}}, lit. &quot;Fifty Sounds&quot;), as illustrated in the adjacent table, with the extra character being the anomalous singular consonant ん (''N'').
+
+[[Romanization of Japanese|Romanisation]] of the kana does not always strictly follow the consonant-vowel scheme laid out in the table. For example, ち, nominally ''ti'', is very often romanised as ''chi'' in an attempt to better represent the actual sound in Japanese.
+
+These basic characters can be modified in various ways. By adding a ''[[dakuten]]'' marker (&amp;nbsp;゛), a voiceless consonant is turned into a voiced consonant: ''k''→''g'', ''ts/s''→''z'', ''t''→''d'', ''h''→''b'' and ''ch''/''sh''→''j''. Hiragana beginning with an ''h'' can also add a ''[[handakuten]]'' marker (&amp;nbsp;゜) changing the ''h'' to a ''p''.
+
+A small version of the hiragana for ''ya'', ''yu'' or ''yo'' (ゃ, ゅ or ょ respectively) may be added to hiragana ending in ''i''. This changes the ''i'' vowel sound to a glide ([[palatalization]]) to ''a'', ''u'' or ''o''. Addition of the small ''y'' kana is called [[yōon]]. For example, き (''ki'') plus ゃ (small ''ya'') becomes {{nowrap|きゃ}} (''kya'').
+
+A small ''tsu'' っ, called a ''[[sokuon]]'', indicates that the following consonant is [[geminated]] (doubled). For example, compare {{nowrap|さか}} ''saka'' &quot;hill&quot; with {{nowrap|さっか}} ''sakka'' &quot;author&quot;. It also sometimes appears at the end of utterances, where it denotes a [[glottal stop]], as in {{nowrap|いてっ!}} ({{IPA-ja|iteʔ|}} Ouch!).  However, it cannot be used to double the ''na'', ''ni'', ''nu'', ''ne'', ''no'' syllables' consonants – to double them, the singular ''n'' (ん) is added in front of the syllable.
+
+Hiragana usually spells [[long vowel]]s with the addition of a second vowel kana. The [[chōonpu]] (long vowel mark) (ー) used in katakana is rarely used with hiragana, for example in the word {{nowrap|らーめん}}, ''[[rāmen]]'', but this usage is considered non-standard. In informal writing, small versions of the five vowel kana are sometimes used to represent trailing off sounds ({{nowrap|はぁ}} ''haa'', {{nowrap|ねぇ}} ''nee''). Standard and voiced [[Iteration mark#Japanese|iteration marks]] are written in hiragana as ゝ and ゞ respectively.
+
+==Table of hiragana==
+The following table shows the complete hiragana together with the [[Hepburn romanization]] and [[International Phonetic Alphabet|IPA]] transcription in the ''gojūon'' order. Hiragana with ''dakuten'' or ''handakuten'' follow the ''gojūon'' kana without them, with the ''yōon'' kana following. Obsolete and normally unused kana are shown in &lt;span style=&quot;color:#808080;&quot;&gt;gray&lt;/span&gt;. For all syllables besides ん, the pronunciation indicated is for word-initial syllables, for mid-word pronunciations see below.
+
+{| class=&quot;wikitable nowraplinks&quot; border=&quot;0&quot; cellpadding=&quot;2&quot; style=&quot;vertical-align:top;padding:2px;&quot; width=&quot;100%&quot;
+|+ Hiragana syllabograms
+|-
+!rowspan=2 width=2%|
+!valign=top align=center colspan=5 style=&quot;background:#BECFEB;&quot; width=&quot;50%&quot;|Monographs ([[gojūon]])
+!colspan=3 align=center style=&quot;background:#D4D4D4;&quot; width=&quot;33%&quot;| Digraphs ([[yōon]])
+|-
+!width=10%| ''a'' !!width=10%| ''i'' !!width=10%| ''u'' !!width=10%| ''e'' !!width=10%| ''o''
+
+!width=11%| ''ya'' !!width=11%| ''yu'' !!width=11%| ''yo''
+|- valign=top align=center
+!title=&quot;vowels&quot;|∅
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[あ]]&lt;/big&gt;&lt;br&gt; a {{IPA-ja|a|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[い]]&lt;/big&gt;&lt;br&gt; i {{IPA-ja|i|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[う]]&lt;/big&gt;&lt;br&gt; u {{IPA-ja|u͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[え]]&lt;/big&gt;&lt;br&gt; e {{IPA-ja|e|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[お]]&lt;/big&gt;&lt;br&gt; o {{IPA-ja|o|}}
+|colspan=3 bgcolor=&quot;#E9E9E9&quot;|
+|- valign=top align=center
+!''K''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[か]]&lt;/big&gt;&lt;br&gt; ka {{IPA-ja|ka|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[き]]&lt;/big&gt;&lt;br&gt; ki {{IPA-ja|ki|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[く]]&lt;/big&gt;&lt;br&gt; ku {{IPA-ja|ku͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[け]]&lt;/big&gt;&lt;br&gt; ke {{IPA-ja|ke|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[こ]]&lt;/big&gt;&lt;br&gt; ko {{IPA-ja|ko|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[きゃ]]&lt;/big&gt;&lt;br&gt; kya {{IPA-ja|kʲa|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[きゅ]]&lt;/big&gt;&lt;br&gt; kyu {{IPA-ja|kʲu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[きょ]]&lt;/big&gt;&lt;br&gt; kyo {{IPA-ja|kʲo|}}
+|- valign=top align=center
+!''S''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[さ]]&lt;/big&gt;&lt;br&gt; sa {{IPA-ja|sa|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[し]]&lt;/big&gt;&lt;br&gt; shi {{IPA-ja|ɕi|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[す]]&lt;/big&gt;&lt;br&gt; su {{IPA-ja|su͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[せ]]&lt;/big&gt;&lt;br&gt; se {{IPA-ja|se|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[そ]]&lt;/big&gt;&lt;br&gt; so {{IPA-ja|so|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[しゃ]]&lt;/big&gt;&lt;br&gt; sha {{IPA-ja|ɕa|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[しゅ]]&lt;/big&gt;&lt;br&gt; shu {{IPA-ja|ɕu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[しょ]]&lt;/big&gt;&lt;br&gt; sho {{IPA-ja|ɕo|}}
+|- valign=top align=center
+!''T''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[た]]&lt;/big&gt;&lt;br&gt; ta {{IPA-ja|ta|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ち]]&lt;/big&gt;&lt;br&gt; chi {{IPA-ja| t͡ɕi|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[つ]]&lt;/big&gt;&lt;br&gt; tsu {{IPA-ja| t͡su͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[て]]&lt;/big&gt;&lt;br&gt; te {{IPA-ja|te|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[と]]&lt;/big&gt;&lt;br&gt; to {{IPA-ja|to|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ちゃ]]&lt;/big&gt;&lt;br&gt; cha {{IPA-ja| t͡ɕa|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ちゅ]]&lt;/big&gt;&lt;br&gt; chu {{IPA-ja| t͡ɕu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ちょ]]&lt;/big&gt;&lt;br&gt; cho {{IPA-ja| t͡ɕo|}}
+|- valign=top align=center
+!''N''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[な]]&lt;/big&gt;&lt;br&gt; na {{IPA-ja|na|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[に]]&lt;/big&gt;&lt;br&gt; ni {{IPA-ja|ni|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぬ]]&lt;/big&gt;&lt;br&gt; nu {{IPA-ja|nu͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ね]]&lt;/big&gt;&lt;br&gt; ne {{IPA-ja|ne|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[の]]&lt;/big&gt;&lt;br&gt; no {{IPA-ja|no|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[にゃ]]&lt;/big&gt;&lt;br&gt; nya {{IPA-ja|nʲa|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[にゅ]]&lt;/big&gt;&lt;br&gt; nyu {{IPA-ja|nʲu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[にょ]]&lt;/big&gt;&lt;br&gt; nyo {{IPA-ja|nʲo|}}
+|- valign=top align=center
+!''H''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[は]]&lt;/big&gt;&lt;br&gt; ha {{IPA-ja|ha|}} &lt;br /&gt;({{IPA-ja|wa|}} as particle)
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ひ]]&lt;/big&gt;&lt;br&gt; hi {{IPA-ja|çi|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ふ]]&lt;/big&gt;&lt;br&gt; fu {{IPA-ja|ɸu͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[へ]]&lt;/big&gt;&lt;br&gt; he {{IPA-ja|he|}} &lt;br /&gt;({{IPA-ja|e|}} as particle)
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ほ]]&lt;/big&gt;&lt;br&gt; ho {{IPA-ja|ho|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ひゃ]]&lt;/big&gt;&lt;br&gt; hya {{IPA-ja|ça|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ひゅ]]&lt;/big&gt;&lt;br&gt; hyu {{IPA-ja|çu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ひょ]]&lt;/big&gt;&lt;br&gt; hyo {{IPA-ja|ço|}}
+|- valign=top align=center
+!''M''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ま]]&lt;/big&gt;&lt;br&gt; ma {{IPA-ja|ma|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[み]]&lt;/big&gt;&lt;br&gt; mi {{IPA-ja|mi|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[む]]&lt;/big&gt;&lt;br&gt; mu {{IPA-ja|mu͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[め]]&lt;/big&gt;&lt;br&gt; me {{IPA-ja|me|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[も]]&lt;/big&gt;&lt;br&gt; mo {{IPA-ja|mo|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[みゃ]]&lt;/big&gt;&lt;br&gt; mya {{IPA-ja|mʲa|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[みゅ]]&lt;/big&gt;&lt;br&gt; myu {{IPA-ja|mʲu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[みょ]]&lt;/big&gt;&lt;br&gt; myo {{IPA-ja|mʲo|}}
+|- valign=top align=center
+!''Y''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[や]]&lt;/big&gt;&lt;br&gt; ya {{IPA-ja|ja|}}
+|bgcolor=&quot;#E9E9E9&quot;|
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ゆ]]&lt;/big&gt;&lt;br&gt; yu {{IPA-ja|ju͍|}}
+|bgcolor=&quot;#E9E9E9&quot;|
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[よ]]&lt;/big&gt;&lt;br&gt; yo {{IPA-ja|jo|}}
+|colspan=3 bgcolor=&quot;#E9E9E9&quot;|
+|- valign=top align=center
+!''R''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ら]]&lt;/big&gt;&lt;br&gt; ra {{IPA-ja|ɽa|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[り]]&lt;/big&gt;&lt;br&gt; ri {{IPA-ja|ɽi|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[る]]&lt;/big&gt;&lt;br&gt; ru {{IPA-ja|ɽu͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[れ]]&lt;/big&gt;&lt;br&gt; re {{IPA-ja|ɽe|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ろ]]&lt;/big&gt;&lt;br&gt; ro {{IPA-ja|ɽo|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[りゃ]]&lt;/big&gt;&lt;br&gt; rya {{IPA-ja|ɽʲa|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[りゅ]]&lt;/big&gt;&lt;br&gt; ryu {{IPA-ja|ɽʲu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[りょ]]&lt;/big&gt;&lt;br&gt; ryo {{IPA-ja|ɽʲo|}}
+|- valign=top align=center
+!''W''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[わ]]&lt;/big&gt;&lt;br&gt; wa {{IPA-ja|wa|}}
+|bgcolor=&quot;#EFFAFA&quot;|[[ゐ|&lt;big style=&quot;color:#808080&quot;&gt;ゐ&lt;/big&gt;]]&lt;br&gt; i/wi {{IPA-ja|(w)i|}}
+|bgcolor=&quot;#E9E9E9&quot;|
+|bgcolor=&quot;#EFFAFA&quot;|[[ゑ|&lt;big style=&quot;color:#808080&quot;&gt;ゑ&lt;/big&gt;]]&lt;br&gt; e/we {{IPA-ja|(w)e|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[を]]&lt;/big&gt;&lt;br&gt; o/wo {{IPA-ja|(w)o|}} (particle)
+|colspan=3 bgcolor=&quot;#E9E9E9&quot;|
+|-
+|colspan=9|
+|- valign=top align=center
+!title=&quot;consonants and functional signs&quot;| *
+|colspan=5 bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ん]]&lt;/big&gt;&lt;br&gt; n &lt;br&gt;{{IPA-ja|n|}} {{IPA-ja|m|}} {{IPA-ja|ŋ|}} before stop consonants;&lt;br&gt;{{IPA-ja|ɴ|}} {{IPA-ja|ũ͍|}} {{IPA-ja|ĩ|}} elsewhere
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[っ]]&lt;/big&gt;&lt;br&gt; (indicates a [[geminate]] consonant)
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ゝ]]&lt;/big&gt;&lt;br&gt; (reduplicates and&lt;br&gt;unvoices syllable)
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ゞ]]&lt;/big&gt;&lt;br&gt; (reduplicates and&lt;br&gt;voices syllable)
+|-
+|colspan=9|
+|- valign=top align=center
+!rowspan=2|
+!colspan=5 style=&quot;background:#BECFEB;&quot;|Diacritics ([[gojūon]] with ([[handakuten|han]])[[dakuten]])
+!colspan=3 style=&quot;background:#D4D4D4;&quot;|Digraphs with diacritics ([[yōon]] with ([[handakuten|han]])[[dakuten]])
+|-
+! ''a'' !! ''i'' !! ''u'' !! ''e'' !! ''o''
+
+! ''ya'' !! ''yu'' !! ''yo''
+|- valign=top align=center
+!''G''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[が]]&lt;/big&gt;&lt;br&gt; ga {{IPA-ja|ɡa|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぎ]]&lt;/big&gt;&lt;br&gt; gi {{IPA-ja|ɡi|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぐ]]&lt;/big&gt;&lt;br&gt; gu {{IPA-ja|ɡu͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[げ]]&lt;/big&gt;&lt;br&gt; ge {{IPA-ja|ɡe|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ご]]&lt;/big&gt;&lt;br&gt; go {{IPA-ja|ɡo|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ぎゃ]]&lt;/big&gt;&lt;br&gt; gya {{IPA-ja|ɡʲa|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ぎゅ]]&lt;/big&gt;&lt;br&gt; gyu {{IPA-ja|ɡʲu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ぎょ]]&lt;/big&gt;&lt;br&gt; gyo {{IPA-ja|ɡʲo|}}
+|- valign=top align=center
+!''Z''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ざ]]&lt;/big&gt;&lt;br&gt; za {{IPA-ja|za|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[じ]]&lt;/big&gt;&lt;br&gt; ji {{IPA-ja|d͡ʑi|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ず]]&lt;/big&gt;&lt;br&gt; zu {{IPA-ja|zu͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぜ]]&lt;/big&gt;&lt;br&gt; ze {{IPA-ja|ze|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぞ]]&lt;/big&gt;&lt;br&gt; zo {{IPA-ja|zo|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[じゃ]]&lt;/big&gt;&lt;br&gt; ja {{IPA-ja|d͡ʑa|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[じゅ]]&lt;/big&gt;&lt;br&gt; ju {{IPA-ja|d͡ʑu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[じょ]]&lt;/big&gt;&lt;br&gt; jo {{IPA-ja|d͡ʑo|}}
+|- valign=top align=center
+!''D''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[だ]]&lt;/big&gt;&lt;br&gt; da {{IPA-ja|da|}}
+|bgcolor=&quot;#E7F5DE&quot;| [[ぢ|&lt;big style=&quot;color:#808080&quot;&gt;ぢ&lt;/big&gt;]]&lt;br&gt; ji {{IPA-ja|d͡ʑi|}}
+|bgcolor=&quot;#E7F5DE&quot;| [[づ|&lt;big style=&quot;color:#808080&quot;&gt;づ&lt;/big&gt;]]&lt;br&gt; zu {{IPA-ja|zu͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[で]]&lt;/big&gt;&lt;br&gt; de {{IPA-ja|de|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ど]]&lt;/big&gt;&lt;br&gt; do {{IPA-ja|do|}}
+|bgcolor=&quot;#EEEFE4&quot;| [[ぢゃ|&lt;big style=&quot;color:#808080&quot;&gt;ぢゃ&lt;/big&gt;]]&lt;br&gt; ja {{IPA-ja|d͡ʑa|}}
+|bgcolor=&quot;#EEEFE4&quot;| [[ぢゅ|&lt;big style=&quot;color:#808080&quot;&gt;ぢゅ&lt;/big&gt;]]&lt;br&gt; ju {{IPA-ja|d͡ʑu͍|}}
+|bgcolor=&quot;#EEEFE4&quot;| [[ぢょ|&lt;big style=&quot;color:#808080&quot;&gt;ぢょ&lt;/big&gt;]]&lt;br&gt; jo {{IPA-ja|d͡ʑo|}}
+|- valign=top align=center
+!''B''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ば]]&lt;/big&gt;&lt;br&gt; ba {{IPA-ja|ba|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[び]]&lt;/big&gt;&lt;br&gt; bi {{IPA-ja|bi|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぶ]]&lt;/big&gt;&lt;br&gt; bu {{IPA-ja|bu͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[べ]]&lt;/big&gt;&lt;br&gt; be {{IPA-ja|be|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぼ]]&lt;/big&gt;&lt;br&gt; bo {{IPA-ja|bo|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[びゃ]]&lt;/big&gt;&lt;br&gt; bya {{IPA-ja|bʲa|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[びゅ]]&lt;/big&gt;&lt;br&gt; byu {{IPA-ja|bʲu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[びょ]]&lt;/big&gt;&lt;br&gt; byo {{IPA-ja|bʲo|}}
+|- valign=top align=center
+!''P''
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぱ]]&lt;/big&gt;&lt;br&gt; pa {{IPA-ja|pa|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぴ]]&lt;/big&gt;&lt;br&gt; pi {{IPA-ja|pi|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぷ]]&lt;/big&gt;&lt;br&gt; pu {{IPA-ja|pu͍|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぺ]]&lt;/big&gt;&lt;br&gt; pe {{IPA-ja|pe|}}
+|bgcolor=&quot;#EFFAFA&quot;|&lt;big&gt;[[ぽ]]&lt;/big&gt;&lt;br&gt; po {{IPA-ja|po|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ぴゃ]]&lt;/big&gt;&lt;br&gt; pya {{IPA-ja|pʲa|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ぴゅ]]&lt;/big&gt;&lt;br&gt; pyu {{IPA-ja|pʲu͍|}}
+|bgcolor=&quot;#F3F5DE&quot;|&lt;big&gt;[[ぴょ]]&lt;/big&gt;&lt;br&gt; pyo {{IPA-ja|pʲo|}}
+|- valign=top align=center
+!''V''
+|colspan=2 bgcolor=&quot;#E9E9E9&quot;|
+|bgcolor=&quot;#E7F5DE &quot;| [[ゔ|&lt;big style=&quot;color:#808080&quot;&gt;ゔ&lt;/big&gt;]]&lt;br&gt; vu/u {{IPA-ja|v(u͍)|}}
+|colspan=5 bgcolor=&quot;#E9E9E9&quot;|
+|}
+
+&lt;!-- An early, now obsolete, hiragana-esque form of ''ye'' may have existed ([[&amp;#x1B001;|&lt;big style=&quot;color:#808080&quot;&gt;&amp;#x1B001;&lt;/big&gt;]] {{IPA-ja|je|}}&lt;ref&gt;[http://www.unicode.org/charts/PDF/U1B000.pdf Unicode Kana Supplement]&lt;/ref&gt;) in pre-Classical Japanese (prior to the advent of [[kana]]), but is generally represented for purposes of reconstruction by the kanji 江, and its hiragana form is not present in any known orthography.{{Contradiction-inline | Two sentences later it says it *is* known.|date=March 2012}} In modern orthography, ''ye'' can also be written as いぇ (イェ in [[katakana]]).
+
+It's true that in early periods of kana, hiragana and katakana letters for &quot;ye&quot; were used, but soon after the distinction between /ye/ and /e/ went away, and letters and glyphs were not established.
+
+This topic is too much advanced, and it's better to write in [[Early Middle Japanese]].
+--&gt;&lt;!--
+Though ''ye'' did appear in some textbooks during the [[Meiji period]] along with another kana for ''yi'' in the form of cursive 以.&lt;ref&gt;[http://members.jcom.home.ne.jp/manya-isi/iroha.htm '''(ja)'''「いろは と アイウエオ」]&lt;/ref&gt;&lt;ref&gt;[http://www.geocities.jp/itikun01/hibi/zat2.html '''(ja)''' 伊豆での収穫 : 日本国語学史上比類なき変体仮名]&lt;/ref&gt;[[File:Hiragana I 01.png|thumb|100px|Cursive 以 (Yi)]]
+
+Original research. Although such &quot;letters&quot; did appear, such simplistic description is wrong. Read [[:ja:五十音]] for the details.
+
+--&gt;
+In the middle of words, the ''g'' sound (normally {{IPA|[ɡ]}}) often turns into a [[velar nasal]] {{IPA|[ŋ]}} and less often (although increasing recently) into the [[voiced velar fricative]] {{IPA|[ɣ]}}. An exception to this is numerals; 15 ''juugo'' is considered to be one word, but is pronounced as if it was ''jū'' and ''go'' stacked end to end: {{IPA|[d͡ʑu͍ːɡo]}}.
+
+Additionally, the ''j'' sound (normally {{IPA|[d͡ʑ]}}) can be pronounced {{IPA|[ʑ]}} in the middle of words. For example {{nowrap|すうじ}} ''sūji'' {{IPA|[su͍ːʑi]}} 'number'.
+
+In archaic forms of Japanese, there existed the ''kwa'' ({{lang|ja|くゎ}} {{IPA-ja|kʷa|}}) and ''gwa'' ({{lang|ja|ぐゎ}} {{IPA-ja|ɡʷa|}}) digraphs. In modern Japanese, these phonemes have been phased out of usage and only exist in the extended [[katakana]] digraphs for approximating foreign language words.
+
+The singular ''n'' is pronounced {{IPA|[n]}} before ''t'', ''ch'', ''ts'', ''n'', ''r'', ''z'', ''j'' and ''d'', {{IPA|[m]}} before ''m'', ''b'' and ''p'', {{IPA|[ŋ]}} before ''k'' and ''g'', {{IPA|[ɴ]}} at the end of utterances, {{IPA|[ũ͍]}} before vowels, palatal approximants (''y''), consonants ''s'', ''sh'', ''h'', ''f'' and ''w'', and finally {{IPA|[ĩ]}} after the vowel ''i'' if another vowel, palatal approximant or consonant ''s'', ''sh'', ''h'', ''f'' or ''w'' follows.&lt;!-- ũ before ''z'' is possible too.. --&gt;
+
+In kanji readings, the diphthongs ''ou'' and ''ei'' are today usually pronounced {{IPA|[oː]}} (long o) and {{IPA|[eː]}} (long e) respectively. For example {{nowrap|とうきょう}} (lit. ''toukyou'') is pronounced {{IPA|[toːkʲoː]}} 'Tokyo', and {{nowrap|せんせい}} ''sensei'' is {{IPA|[seũ͍seː]}} 'teacher'. However, {{nowrap|とう}} ''tou'' is pronounced {{IPA|[tou͍]}} 'to inquire', because the ''o'' and ''u'' are considered distinct, ''u'' being the infinitive verb ending. Similarly, {{nowrap|している}} ''shite iru'' is pronounced {{IPA|[ɕiteiɾu͍]}} 'is doing'.
+
+For a more thorough discussion on the sounds of Japanese, please refer to [[Japanese phonology]].
+
+==Spelling rules==
+
+With a few exceptions for sentence particles は, を, and へ (pronounced as ''wa'', ''o'', and ''e''), and a few other arbitrary rules, Japanese, when written in kana, is [[Phonemic principle|phonemically orthographic]], i.e. there is a one-to-one correspondence between kana characters and sounds, leaving only words' [[Japanese pitch accent|pitch accent]] unrepresented. This has not always been the case: a previous system of spelling, now referred to as [[historical kana usage]], differed substantially from pronunciation; the three above-mentioned exceptions in modern usage are the legacy of that system. The old spelling is referred to as {{nihongo|''[[kanazukai]]''|仮名遣い|}}.
+
+There are two hiragana pronounced ''ji'' (じ and ぢ) and two hiragana pronounced ''zu'' (ず and づ), but to distinguish them, sometimes ''ぢ'' is written as ''di'' and ''づ'' is written as dzu. These pairs are not interchangeable. Usually, ''ji'' is written as じ and ''zu'' is written as ず. There are some exceptions. If the first two syllables of a word consist of one syllable without a ''[[dakuten]]'' and the same syllable with a ''dakuten'', the same hiragana is used to write the sounds.  For example ''chijimeru'' ('to boil down' or 'to shrink') is spelled ちぢめる and ''tsudzuku'' ('to continue') is {{nowrap|つづく}}. For compound words where the dakuten reflects ''[[rendaku]]'' voicing, the original hiragana is used. For example, ''chi'' ({{lang|ja|血}} 'blood') is spelled ち in plain hiragana. When {{lang|ja|鼻}} ''hana'' ('nose') and {{lang|ja|血}} ''chi'' ('blood') combine to make ''hanaji'' {{lang|ja|鼻血}} 'nose bleed'), the sound of 血 changes from ''chi'' to ''dji''.  So ''hanadji'' is spelled {{nowrap|はなぢ}} according to ち: the basic hiragana used to transcribe {{lang|ja|血}}. Similarly, ''tsukau'' ({{lang|ja|使う/遣う}}; 'to use') is spelled {{nowrap|つかう}} in hiragana, so ''kanazukai'' ({{lang|ja|仮名遣い}}; 'kana use', or 'kana orthography') is spelled {{nowrap|かなづかい}} in hiragana.
+
+However, this does not apply when kanji are used phonetically to write words which do not relate directly to the meaning of the kanji (see also [[ateji]]).  The Japanese word for 'lightning', for example, is ''inazuma'' ({{lang|ja|稲妻}}).  The {{lang|ja|稲}} component means 'rice plant', is written {{nowrap|いな}} in hiragana and is pronounced: ''ina''.  The {{lang|ja|妻}} component means 'wife' and is pronounced ''tsuma'' (つま) when written in isolation—or frequently as ''zuma'' {{nowrap|(ずま)}} when it features after another syllable. Neither of these components have anything to do with 'lightning', but together they do when they compose the word for 'lightning'. In this case, the default spelling in hiragana {{nowrap|いなずま}} rather than {{nowrap|いなづま}} is used.
+
+Officially, ぢ and づ do not occur word-initially pursuant to modern spelling rules. There were words such as {{nowrap|ぢばん}} ''jiban'' 'ground' in the [[historical kana usage]], but they were unified under じ in the [[modern kana usage]] in 1946, so today it is spelled exclusively {{nowrap|じばん}}. However, {{nowrap|づら}} ''zura'' 'wig' (from {{nowrap|かつら}} ''katsura'') and {{nowrap|づけ}} ''zuke'' (a sushi term for lean tuna soaked in soy sauce) are examples of word-initial づ today. Some people write the word for hemorrhoids as ぢ (normally じ) for emphasis.
+
+No standard Japanese words begin with the kana ん (''n''). This is the basis of the word game [[shiritori]]. ん ''n'' is normally treated as its own syllable and is separate from the other ''n''-based kana (''na'', ''ni'' etc.). A notable exception to this{{Clarify|reason = unclear how this is an &quot;exception&quot; to anything that has been said|date=May 2010}} is the colloquial negative verb conjugation; for example {{nowrap|わからない}} ''wakaranai'' meaning &quot;[I] don't understand&quot; is rendered as {{nowrap|わからん}} ''wakaran''. It is however not a contraction of the former, but instead comes from the classic negative verb conjugation ぬ ''nu'' ({{nowrap|わからぬ}} ''wakaranu'').
+
+ん is sometimes directly followed by a vowel (''a'', ''i'', ''u'', ''e'' or ''o'') or a palatal approximant (''ya'', ''yu'' or ''yo''). These are clearly distinct from the ''na'', ''ni'' etc. syllables, and there are [[minimal pair]]s such as {{nowrap|きんえん}} ''kin'en'' 'smoking forbidden', {{nowrap|きねん}} ''kinen'' 'commemoration', {{nowrap|きんねん}} ''kinnen'' 'recent years'. In Hepburn romanization, they are distinguished with an apostrophe, but not all romanization methods make the distinction. For example past prime minister [[Junichiro Koizumi]]'s first name is actually {{nowrap|じゅんいちろう}} ''Jun'ichirō'' pronounced {{IPA|[d͡ʑu͍ũ͍it͡ɕiɾoː]}}
+
+There are a few hiragana which are rarely used. ゐ ''wi'' and ゑ ''we'' are obsolete outside of Okinawan dialects. ゔ ''vu''  is a modern addition used to represent the /v/ sound in foreign languages such as English, but since Japanese from a phonological standpoint does not have a /v/ sound, it is pronounced as /b/ and mostly serves as a more accurate indicator of a word's pronunciation in its original language. However, it is rarely seen because [[loanword]]s and [[Transliteration|transliterated]] words are usually written in [[katakana]], where the corresponding character would be written as ヴ. {{nowrap|ぢゃ}}, {{nowrap|ぢゅ}}, {{nowrap|ぢょ}} for ''ja''/''ju''/''jo'' are theoretically possible in [[rendaku]], but are practically never used. For example {{nowrap|日本中}} 'throughout Japan' could be written {{nowrap|にほんぢゅう}}, but is practically always {{nowrap|にほんじゅう.}}
+
+The {{nowrap|みゅ}} ''myu'' kana is extremely rare in originally Japanese words; linguist [[Haruhiko Kindaichi]] raises the example of the Japanese family name Omamyūda {{nowrap|(小豆生田)}} and claims it is the only occurrence amongst pure Japanese words. Its [[katakana]] counterpart is used in many loanwords, however.
+
+==History==
+[[File:Treatise On Calligraphy.jpg|thumb|left|Hiragana characters' shapes were derived from the Chinese [[Cursive script (East Asia)|cursive script]] (''sōsho''). Shown here is a sample of the cursive script by Chinese [[Tang Dynasty]] calligrapher [[Sun Guoting]], from the late 7th century.]]
+Hiragana developed from ''[[man'yōgana]]'', [[Chinese language|Chinese]] characters used for their pronunciations, a practice which started in the 5th century.&lt;ref&gt;''Yookoso! An Invitation to Contemporary Japanese'' 1st edition McGraw-Hill, page 13 &quot;Linguistic Note: The Origins of Hiragana and Katakana&quot;&lt;/ref&gt; The oldest example of Man'yōgana is [[Inariyama Sword]] which is an iron sword excavated at the Inariyama Kofun in 1968. This sword is thought to be made in year of {{nowrap|辛亥年}} (which is A.D. 471 in commonly accepted theory).&lt;ref&gt;Seeley (2000:19-23)&lt;/ref&gt;
+The forms of the hiragana originate from the [[cursive script (East Asia)|cursive script]] style of [[Chinese calligraphy]]. The figure below shows the derivation of hiragana from manyōgana via cursive script. The upper part shows the character in the [[regular script]] form, the center character in red shows the cursive script form of the character, and the bottom shows the equivalent hiragana. Note also that the cursive script forms are not strictly confined to those in the illustration.
+
+[[File:Hiragana origin.svg|320px|right]] When they were first developed, hiragana were not accepted by everyone. The educated or elites preferred to use only the kanji system. Historically, in Japan, the regular script (''kaisho'') form of the characters was used by men and called {{nihongo|''otokode''|[[wikt:男手|男手]]|}}, &quot;men's writing&quot;, while the cursive script (''sōsho'') form of the kanji was used by women. Hence hiragana first gained popularity among women, who were generally not allowed access to the same levels of education as men. And thus hiragana was first widely used among court women in the writing of personal communications and literature.&lt;ref&gt;{{cite book|title=An Introduction to Modern Japanese: Book 1|year=2004|publisher=Cambridge University Press|location=United Kingdom|isbn=978-0521548878|author=Richard Bowring|coauthors=Haruko Uryu Laurie|page=8}}&lt;/ref&gt;  From this comes the alternative name of {{nihongo|''onnade''|[[wikt:女手|女手]]|}} &quot;women's writing&quot;.&lt;ref&gt;{{cite book|last=Hatasa|first=Yukiko Abe|title=Nakama 1: Introductory Japanese: Communication, Culture, Context 2nd ed.|year=2010|publisher=Heinle|isbn=0495798185|page=2|coauthors=Kazumi Hatasa, Seiichi Makino}}&lt;/ref&gt;  For example, ''[[The Tale of Genji]]'' and other early novels by female authors used hiragana extensively or exclusively.
+
+Male authors came to write literature using hiragana. Hiragana was used for unofficial writing such as personal letters, while katakana and Chinese were used for official documents. In modern times, the usage of hiragana has become mixed with [[katakana]] writing. Katakana is now relegated to special uses such as recently borrowed words (i.e., since the 19th century), names in [[transliteration]], the names of animals, in telegrams, and for emphasis.
+
+Originally, for all syllables there was more than one possible hiragana. In 1900, the system was simplified so each syllable had only one hiragana. The deprecated hiragana are now known as {{nihongo|[[hentaigana]]|変体仮名|}}.
+
+The [[pangram]] poem ''[[Iroha]]-uta'' (&quot;ABC song/poem&quot;), which dates to the 10th century, uses every hiragana once (except ''n'' ん, which was just a variant of む before [[Muromachi era]]).
+
+== Stroke order and direction ==
+The following table shows the method for writing each hiragana character. It is arranged in the traditional way, beginning top right and reading columns down. The numbers and arrows indicate the [[stroke order]] and direction respectively. &lt;br&gt;
+[[File:Table hiragana.svg|center]]
+
+== Unicode ==
+
+{{Main|Hiragana (Unicode block)}}
+
+Hiragana was added to the [[Unicode]] Standard in October, 1991 with the release of version 1.0.
+
+The Unicode block for Hiragana is U+3040 ... U+309F.  Grey areas indicate non-assigned code points:
+
+{{Unicode chart Hiragana}}
+
+The Unicode hiragana block contains precomposed characters for all hiragana in the modern set, including small vowels and yōon kana for compound syllables, plus the archaic ゐ ''wi'' and ゑ ''we'' and the rare ゔ ''vu''; the archaic 𛀁 ''ye'' is included in [[plane (Unicode)#Supplementary Multilingual Plane|plane 1]] at U+1B001 (see below). All combinations of hiragana with ''dakuten'' and ''handakuten'' used in modern Japanese are available as precomposed characters, and can also be produced by using a base hiragana followed by the combining dakuten and handakuten characters (U+3099 and U+309A, respectively). This method is used to add the diacritics to kana that are not normally used with them, for example applying the dakuten to a pure vowel or the handakuten to a kana not in the h-group.
+
+Characters U+3095 and U+3096 are small か (''ka'') and small け (''ke''), respectively.  U+309F is a ligature of [[Yori (kana)|より]] (''yori'') occasionally used in vertical text. U+309B and U+309C are spacing (non-combining) equivalents to the combining dakuten and handakuten characters, respectively.
+
+Historic and variant forms of Japanese kana characters were added to the [[Unicode]] Standard in October, 2010 with the release of version 6.0.
+
+The Unicode block for Kana Supplement is U+1B000 ... U+1B0FF.  Grey areas indicate non-assigned code points:
+
+{{Unicode chart Kana Supplement}}
+
+==See also==
+*[[Bopomofo]] (Zhùyīn fúhào, &quot;phonetic symbols&quot;), a phonetic system of 37 characters for writing Chinese developed in the 1900s and common in Taiwan.
+*[[Iteration mark]] explains the iteration marks used with hiragana.
+*[[Japanese phonology]] explains Japanese pronunciation in detail.
+*[[Japanese typographic symbols]] gives other non-kana, non-kanji symbols.
+*[[Katakana]]
+*[[Nü Shu]], a syllabary writing system used by women in China's [[Hunan]] province
+*[[Shodo]], Japanese calligraphy.
+
+== References ==
+{{Reflist}}
+{{refbegin}}
+* &quot;The Art of Japanese Calligraphy&quot;, Yujiro Nakata, ISBN 0-8348-1013-1, gives details of the development of ''onode'' and ''onnade''.
+{{refend}}
+
+== External links ==
+{{commons|Hiragana}}
+{{Wiktionary|hiragana}}
+&lt;!--
+PLEASE NOTE: Wikipedia IS NOT A LINK DIRECTORY. One more has been added, bringing the number of links to &quot;practice kana&quot; sites to five, and they have now been replaced with a DMOZ link. Please do not add any more without discussing them first on the [[Talk:Hiragana|Talk]] page.
+--&gt;
+* [http://www.unicode.org/charts/PDF/U3040.pdf Hiragana unicode chart]
+
+{{Japanese language}}
+{{list of writing systems}}
+
+[[Category:Japanese writing system terms]]
+[[Category:Kana]]
+
+[[sv:Kana (skriftsystem)#Hiragana]]</text>
+        <sha1>pp3ei5gef5stuf68o71iqyn8s3qe7uz</sha1>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+    </revision>
+</page>

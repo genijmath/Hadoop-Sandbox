@@ -1,0 +1,205 @@
+<page>
+    <title>Arcturus</title>
+    <ns>0</ns>
+    <id>3072</id>
+    <revision>
+        <id>566305199</id>
+        <parentid>566304859</parentid>
+        <timestamp>2013-07-29T16:50:16Z</timestamp>
+        <contributor>
+            <username>Wraithful</username>
+            <id>5106500</id>
+        </contributor>
+        <minor />
+        <comment>/* India */</comment>
+        <text xml:space="preserve">{{Other uses}}
+{{Starbox begin
+ | name=Arcturus
+}}
+{{Starbox image
+ | image=[[Image:Bootes constellation map.png|250px]]
+ | caption=Arcturus in the constellation of Boötes.
+}}
+{{Starbox observe
+ | epoch=J2000
+ | constell=[[Boötes]]
+ | pronounce={{IPAc-en|ɑr|k|ˈ|t|jʊər|ə|s}}
+ | ra={{RA|14|15|39.7}}&lt;ref name=&quot;SIMBAD-Arcturus&quot;/&gt;
+ | dec={{DEC|+19|10|56}}&lt;ref name=&quot;SIMBAD-Arcturus&quot;/&gt;
+ | appmag_v=&amp;minus;0.04&lt;ref name=&quot;SIMBAD-Arcturus&quot;/&gt;
+}}
+{{Starbox character
+ | class=K1.5IIIFe-0.5
+ | appmag_1_passband = [[J band|J]]
+ | appmag_1 = &amp;minus;2.25&lt;ref name=&quot;SIMBAD-Arcturus&quot;/&gt;
+ | b-v=1.23
+ | u-b=1.27
+ | r-i = 0.65
+ | v-r =
+ | variable=[[Variable star]]
+}}
+|- bgcolor=&quot;#FFFAFA&quot;
+| Note (category: variability): || H and K emission vary.
+{{Starbox astrometry
+ | radial_v=-5
+ | prop_mo_ra=−1093.45
+ | prop_mo_dec=−1999.40
+ | parallax=88.98
+ | p_error=0.68
+ | parallax_footnote=
+ | absmag_v={{nowrap|&amp;minus;0.30 ± 0.02}}&lt;ref name=aj135_3_892/&gt;
+}}
+{{Starbox detail
+ | mass    = {{nowrap|1.10 ± 0.06}}&lt;ref name=aaa465_2_593/&gt;
+ | metal_fe = −0.37&lt;ref name=aaa526_A100/&gt;
+ | radius  = 25.7 ± 0.3&lt;ref name=aj126_2_2502/&gt;
+ | rotational_velocity = {{nowrap|2.4 ± 1.0}}&lt;ref name=aj135_3_892/&gt;
+ | luminosity  = 170&lt;ref name=aaa465_2_593/&gt;
+ | temperature = {{nowrap|4,290 ± 43}}&lt;ref name=aaa465_2_593/&gt;
+ | gravity = {{nowrap|1.76 ± 0.05}}&lt;ref name=aaa465_2_593/&gt;
+}}
+{{Starbox catalog
+ | names=Alramech, Abramech, α&amp;nbsp;Boötis, 16&amp;nbsp;Boötes, [[Bonner Durchmusterung|BD]]+19°2777, [[General Catalogue of Trigonometric Parallaxes|GCTP]]&amp;nbsp;3242.00, [[Gliese-Jahreiss catalogue|GJ]]&amp;nbsp;541, [[Henry Draper catalogue|HD]]&amp;nbsp;124897, [[Hipparcos Catalogue|HIP]]&amp;nbsp;69673, [[Harvard Revised catalogue|HR]]&amp;nbsp;5340, [[Luyten Half-Second catalogue|LHS]]&amp;nbsp;48, [[Smithsonian Astrophysical Observatory Star Catalog|SAO]] 100944.
+}}
+{{Starbox reference
+ | Simbad=HD+124897
+ | ARICNS =
+}}
+{{starbox sources|HIP|CCDM|HR|[http://webviz.u-strasbg.fr/viz-bin/VizieR-S?HR%205340 VizieR catalog entry]}}
+{{Starbox end}}
+'''Arcturus''' ({{IPAc-en|ɑr|k|ˈ|tj|ʊər|ə|s}}; α&amp;nbsp;Boo, α&amp;nbsp;Boötis, [[alpha (letter)|Alpha]] Boötis) is the brightest [[star]] in the [[constellation]] [[Boötes]] and the northern [[Celestial sphere|celestial hemisphere]]. With a [[visual magnitude]] of&amp;nbsp;&amp;minus;0.04, it is the [[list of brightest stars|fourth brightest star]] in the [[night sky]], after &amp;minus;1.46&amp;nbsp;magnitude [[Sirius]], &amp;minus;0.86 magnitude [[Canopus (star)|Canopus]], and &amp;minus;0.27&amp;nbsp;magnitude [[Alpha Centauri]]. It is a relatively close star at only 36.7 [[light-years]] from Earth, and, together with [[Vega]] and Sirius, one of the most luminous stars in the [[Sun]]'s neighborhood.
+
+Arcturus is a [[stellar classification|type]] K1.5&amp;nbsp;IIIpe [[Giant_star|orange giant]] star, with an absolute magnitude of −0.30. It has likely exhausted its hydrogen and has begun fusing helium into oxygen and carbon in its core. It will continue to expand before sloughing off its outer shell and ending its life as a [[white dwarf]] inside a planetary nebula.
+
+==Observational history==
+As one of the brightest stars in the sky, Arcturus has been significant to observers since antiquity. In Mesopotamia, it was linked to the god [[Enlil]], and also known as Shudun, &quot;yoke&quot;,&lt;ref name=rogers982/&gt; or SHU-PA of unknown derivation in the ''Three Stars Each'' [[Babylonian star catalogues]] and later [[MUL.APIN]] around 1100 BC.&lt;ref&gt;{{cite journal  | last = Rogers  | first = John H.  | year = 1998  | title = Origins of the Ancient Constellations: I. The Mesopotamian Traditions  | journal = Journal of the British Astronomical Association  | volume = 108  | issue = 1  | pages = 9–28 | bibcode = 1998JBAA..108....9R}}&lt;/ref&gt;
+
+Ptolemy described Arcturus as ''subrufa'' &quot;slightly red&quot;, and it has a B-V color index of +1.23, roughly midway between Pollux (B-V +1.00) and Aldebaran (B-V +1.54).&lt;ref name=schaaf/&gt;
+
+Prehistoric [[Polynesian navigation|Polynesian navigators]] knew Arcturus as ''Hōkūleʻa'', the &quot;Star of Joy&quot;. Arcturus is the [[zenith]] star of the [[Hawaiian Islands]]. Using Hōkūleʻa and other stars, the Polynesians launched their double-hulled [[canoe]]s from [[Tahiti]] and the [[Marquesas Islands]]. Traveling east and north they eventually crossed the [[equator]] and reached the [[latitude]] at which Arcturus would appear directly overhead in the summer [[night sky]]. Knowing they had arrived at the exact latitude of the island chain, they sailed due west on the [[trade wind]]s to landfall. If Hōkūleʻa could be kept directly overhead, they landed on the southeastern shores of the [[Hawaii (island)|Big Island]] of [[Hawaiʻi]]. For a return trip to Tahiti the navigators could use [[Sirius]], the zenith star of that island. Since 1976, the [[Polynesian Voyaging Society]]'s ''[[Hokulea|Hōkūle‘a]]'' has crossed the Pacific Ocean many times under navigators who have incorporated this [[wayfinding]] technique in their non-instrument navigation.
+
+The French mathematician and astronomer [[Jean-Baptiste Morin (mathematician)|Jean-Baptiste Morin]] observed Arcturus in the daytime with a telescope (a first for any star other than the sun) in 1635, and Arcturus has been seen at or just before sunset with the naked eye.&lt;ref name=schaaf/&gt;
+
+According to the ''[[Hipparcos]]'' satellite, Arcturus is 36.7&amp;nbsp;[[light year]]s (11.3&amp;nbsp;[[parsec]]s) from [[Earth]], relatively close in astronomical terms.
+
+==Visibility==
+Arcturus has a [[visual magnitude]] of&amp;nbsp;&amp;minus;0.04, making it the brightest star north of the [[celestial equator]], and the [[list of brightest stars|fourth brightest star]] in the [[night sky]].&lt;ref name=&quot;100greatest&quot;&gt;{{cite book | title=The Hundred Greatest Stars | author=Kaler, James B. | year=2002 | publisher=Copernicus Books | location=New York, New York | isbn=0-387-95436-8 | page=21}}&lt;/ref&gt; However, Alpha Centauri is a bright binary star, whose unresolved components to the naked eye are both fainter than Arcturus. This makes Arcturus the [[list of brightest stars|third brightest ''individual'' star]], just ahead of Alpha Centauri&amp;nbsp;A (α&amp;nbsp;Cen&amp;nbsp;A), whose visual magnitude is&amp;nbsp;&amp;minus;0.01.&lt;ref name=schaaf&gt;{{cite book| first=Fred | last=Schaaf | year=2008 | title=The Brightest Stars: Discovering the Universe Through the Sky's Most Brilliant Stars | pages=126–36 | publisher=John Wiley and Sons|location=Hoboken, New Jersey | isbn=978-0-471-70410-2 }}&lt;/ref&gt;
+
+Arcturus is visible from both Earth's hemispheres as it is located 19° north of the [[celestial equator]]. The star [[culmination|culminates]] at midnight on 27 April, and at 9PM on June 10 being visible during the late northern spring or the southern autumn.&lt;ref&gt;Schaaf, p. 257.&lt;/ref&gt; From the northern hemisphere, an easy way to find Arcturus is to follow the arc of the handle of the [[Big Dipper]]. By continuing in this path, one can find [[Spica]], &quot;Arc to Arcturus, then spike to [[Spica]]&quot;.
+
+Eta Bootis, or Muphrid, is only 3.3 light years distant from Arcturus, and would have a visual magnitude −2.5, whereas an observer on the former system would find Arcturus as bright as Venus as seen from Earth.&lt;ref name=schaaf/&gt;
+
+==Physical properties==
+Arcturus is a [[stellar classification|type]] K1.5&amp;nbsp;IIIpe [[orange giant]] star—the letters &quot;pe&quot; stand for &quot;peculiar emission,&quot; which indicates that the [[electromagnetic spectrum|spectrum]] of [[light]] given off by the star is unusual and full of [[emission line]]s. This is not too uncommon in red giants, but Arcturus has a particularly strong case of the phenomenon. It is at least 110 times visually more luminous than the [[Sun]], but this underestimates its strength as much of the &quot;light&quot; it gives off is in the [[infrared]]; total ([[Bolometric correction|bolometric]]) power output is about 180&amp;nbsp;times that of the Sun. The lower output in visible light is due to a lower [[Luminous efficacy|efficacy]] as the star has a lower surface temperature than the Sun. With a near-infrared [[J band]] [[Magnitude (astronomy)|magnitude]] of −2.2,&lt;ref name=&quot;SIMBAD-Arcturus&quot;/&gt; only [[Betelgeuse]] (−2.9) and [[R Doradus]] (−2.6) are brighter.
+
+As the brightest K-type [[Giant_star#Red_giants|giant]] in the sky, it was the subject of an [[spectral atlas|atlas]] of its [[visible spectrum]], made from [[photographic plate|photographic]] spectra taken with the [[Reflecting_telescope#Coud.C3.A9|coudé]] [[spectrograph]] of the [[Hooker telescope|Mt. Wilson 2.5m telescope]] published in 1968,&lt;ref&gt; {{cite book | last=Griffin | first=R. E. |last2=Griffin | first2=R. | title=A photometric atlas of the spectrum of Arcturus, λλ3600-8825Å | publisher=Cambridge Philosophical Society |location=Cambridge | year=1968 | bibcode=1968pmas.book.....G }}&lt;/ref&gt; a key reference work for stellar spectroscopy.  Subsequent spectral atlases
+&lt;ref&gt;{{cite book | last=Hinkle | first=Kenneth |last2=Wallace | first2=Lloyd | last3=Valenti | first3=Jeff | last4=Harmer | first4=Dianne | title=Visible and Near Infrared Atlas of the Arcturus Spectrum 3727-9300 Å | bibcode=2000vnia.book.....H | publisher=[[Astronomical Society of the Pacific]] | location=San Francisco | isbn=1-58381-037-4 | date=2000 }}&lt;/ref&gt;
+&lt;ref&gt;{{cite book | last=Hinkle | first=Kenneth |last2=Wallace | first2=Lloyd | last3=Livingston |first3=William Charles | title=Infrared atlas of the Arcturus spectrum, 0.9-5.3 microns | bibcode=1995iaas.book.....H | publisher=Astronomical Society of the Pacific | location=San Francisco | date=1995 }}&lt;/ref&gt;
+&lt;ref&gt;{{cite book | last=Hinkle | first=Kenneth |last2=Wallace | first2=Lloyd | last3=Valenti |first3=Jeff | last4=Ayres | first4=Thomas | title=Ultraviolet Atlas of the Arcturus Spectrum, 1150-3800 Å | bibcode=2005uaas.book.....H | publisher=Astronomical Society of the Pacific | location=San Francisco | date=2005 }}&lt;/ref&gt; with greater wavelength coverage and superior  [[signal-to-noise ratio]] made with digital detectors have supplanted the older work, but the Arcturus spectrum remains an important standard for stellar spectroscopy.
+
+===Oscillations===
+As one of the brightest stars in the sky, Arcturus has been the subject of a number of studies in the emerging field of [[asteroseismology]].
+
+Belmonte et al. (1990) carried out a radial velocity (Doppler shift of spectral lines) study of the star in April and May 1988, which showed variability with a frequency of the order of a few [[Hertz|microhertz]], the highest peak corresponding to 4.3&amp;nbsp;μHz (2.7&amp;nbsp;days) with an amplitude of 60 ms&lt;sup&gt;−1&lt;/sup&gt;, with a [[frequency separation]] of ~5&amp;nbsp;μHz. They suggested that the most plausible explanation for the variability of Arcturus is stellar oscillations.
+
+It is believed that the surface of the star oscillates slightly, a common feature of red giant stars. In the case of Arcturus, this was an interesting discovery as it is known that the redder (more towards or within the M spectral class) a giant gets, the more variable it will be. Extreme cases like [[Mira]] undergo large swings over hundreds of days; Arcturus is not very red and is a borderline case between variability and stability with its short period and tiny range.{{Citation needed|date=April 2012}}
+
+===Element abundance===
+Astronomers term &quot;metals&quot; those elements with higher [[atomic number]]s than helium. Arcturus has a much lower metallicity than our sun, and it is possibly a Population II star.&lt;ref name=schaaf/&gt;
+
+===Kinematics===
+Arcturus is notable for its high [[proper motion]], larger than any first magnitude star in the stellar neighborhood other than [[Alpha Centauri|α&amp;nbsp;Centauri]]. It is moving rapidly ({{nowrap|122 km/s}}) relative to the solar system, and is now almost at its closest point to the Sun. Closest approach will happen in about 4,000 years, when the star will be a few hundredths of a light year closer to Earth than it is today. Arcturus is thought to be an old disk star, and appears to be moving with a group of 52 other such stars, known as the [[Arcturus stream]].&lt;ref&gt;{{cite web|url=http://earthsky.org/brightest-stars/bright-orange-arcturus-use-the-big-dipper-to-find-it|title=Arcturus, orange star, cuts through galaxy’s disk|publisher=[[EarthSky]]|date=2011-05-18|accessdate= 2012-01-24|quote= |page= |author=Larry Sessions, Deborah Byrd}}&lt;/ref&gt; Its mass is hard to exactly determine, but may be slightly larger than that of the Sun&lt;ref&gt;Ayres, T. R. &amp; Johnson, H. R., ApJ, 1977, Vol 214, P410-417&lt;/ref&gt; (1.1{{±|0.6|0.4}} solar mass). Arcturus is likely to be around 7 billion years old,&lt;ref&gt;{{cite web|url=http://adsabs.harvard.edu/abs/2011ApJ...743..135R|title=Fundamental Parameters and Chemical Composition of Arcturus|publisher=[[The Astrophysical Journal]]|date=2011-12|accessdate= |quote= |page= |author=I. Ramirez, C. Allende Prieto}}&lt;/ref&gt; and has likely begun fusing helium into oxygen and carbon in its core. It will expand further after its helium supply is exhausted, slough off its outer shell and become a white dwarf inside a planetary nebula.&lt;ref name=&quot;100greatest&quot;/&gt;
+
+In antiquity, Arcturus was closer to the centre of the constellation.&lt;ref name=rogers982&gt;{{cite journal  | last = Rogers  | first = John H.  | year = 1998  | title = Origins of the Ancient Constellations: II. The Mediterranean Traditions  | journal = Journal of the British Astronomical Association  | volume = 108  | issue = 2  | pages = 79–89  | bibcode = 1998JBAA..108...79R}}&lt;/ref&gt;
+
+==Possible planetary system==
+''Hipparcos'' also suggested that Arcturus is a [[binary star]], with the companion about twenty times dimmer than the primary and orbiting close enough to be at the very limits of our current ability to make it out. Recent results remain inconclusive, but do support the marginal ''Hipparcos'' detection of a binary companion.&lt;ref&gt;{{Cite journal| first1=T.|last1=Verhoelst|first2=P. J.|last2= Bordé|first3=G.|last3=Perrin|first4=L.|last4=Decin|title=Is Arcturus a well-understood K giant?|journal=Astronomy &amp; Astrophysics|year=2005|volume=435|pages=289|doi=10.1051/0004-6361:20042356|last5= Eriksson|first5=K.|last6=Ridgway|first6=S. T.|last7=Schuller|first7=P. A.|last8=Traub|first8=W. A.|last9=Millan-Gabet|first9=R.|  postscript=&lt;!--None--&gt;|bibcode=2005A&amp;A...435..289V|arxiv=astro-ph/0501669}}, and see references therein.&lt;/ref&gt;
+
+In 1993, radial velocity measurements of [[Aldebaran]], Arcturus and [[Pollux (star)|Pollux]] showed that Arcturus exhibited a long-period radial velocity oscillation, which could be interpreted as a ''substellar companion''. This [[substellar]] object would be nearly 12&amp;nbsp;times the mass of [[Jupiter]] and be located roughly within [[Earth]]'s [[orbital zone]], at 1.1&amp;nbsp;[[Astronomical Unit]]s. However, all three stars surveyed showed similar oscillations yielding similar companion masses, and the authors concluded that the variation was likely to be intrinsic to the star rather than due to the gravitational effect of a companion. So far no substellar companion has been confirmed.&lt;ref name=Kgiants&gt;{{cite journal|doi=10.1086/173002|title=Long-period radial velocity variations in three K giants|author=Hatzes, A., Cochran, W.|journal=[[The Astrophysical Journal]]|volume=413|issue = 1|pages=339–348|date=August, 1993|bibcode=1993ApJ...413..339H}}&lt;/ref&gt;
+&lt;!--
+{{PlanetboxOrbit begin}}
+{{PlanetboxOrbit hypothetical
+| exoplanet = [[Arcturus b|b]]
+| mass = 11.7
+| period = 233
+| semimajor = 1.1
+| eccentricity = 0.147
+}}
+{{PlanetboxOrbit end}}
+Put the starbox in once a planet has been confirmed, if it is a planet and not a brown dwarf.--&gt;
+
+==Names and cultural significance==
+[[Image:Redgiants.svg|thumb|right|200px|Comparison between Arcturus, red supergiant [[Antares]], and the Sun. The black circle is the size of the orbit of Mars.]]
+The name of the star derives from [[Ancient Greek]] Αρκτοῦρος (''Arktouros'') and means &quot;Guardian of the Bear&quot;,&lt;ref&gt;[http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0057%3Aentry%3D*%29arktou%3Dros Αρκτοῦρος], Henry George Liddell, Robert Scott, ''A Greek-English Lexicon'', on Perseus&lt;/ref&gt; ultimately from ἄρκτος (''arktos''), &quot;bear&quot;&lt;ref&gt;[http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0057%3Aentry%3Da%29%2Frktos ἄρκτος], Henry George Liddell, Robert Scott, ''A Greek-English Lexicon'', on Perseus&lt;/ref&gt; + οὖρος (''ouros''), &quot;watcher, guardian&quot;.&lt;ref&gt;[http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0057%3Aentry%3Dou%29%3Dros2 οὖρος], Henry George Liddell, Robert Scott, ''A Greek-English Lexicon'', on Perseus&lt;/ref&gt; It has been known by this name since at least the time of [[Hesiod]].&lt;ref name=rogers982/&gt; This is a reference to it being the brightest star in the constellation Boötes (of which it forms the left foot), which is next to the Greater and Lesser Bears, [[Ursa Major]] and [[Ursa Minor]].
+
+In [[Ancient Rome]], the star's celestial activity was supposed to portend tempestuous weather and a personification of the stars acts as narrator of the prologue to [[Plautus|Plautus']] comedy ''[[Rudens (play)|Rudens]]''.&lt;ref&gt;[[Plautus]] ''Rudens'' prol.&amp;nbsp;71 and [[Lewis and Short]]'s Latin Dictionary and its entry for Arcturus.&lt;/ref&gt;
+
+In [[Arabic language|Arabic]], Arcturus is one of two stars called ''al-simāk'' (&quot;the uplifted one&quot;), the other being [[Spica]]. Arcturus is specified as السماك الرامح ''as-simāk ar-rāmiħ'' &quot;the uplifted one of the lancer&quot;.  The term '''Al Simak Al Ramih''' was appeared in Al Achsasi Al Mouakket catalogue, which  was translated into [[Latin]] as '''Al Simak Lanceator'''.&lt;ref&gt;{{cite journal|last=Knobel|first=E. B.|title=Al Achsasi Al Mouakket, on a catalogue of stars in the Calendarium of Mohammad Al Achsasi Al Mouakket|journal=Monthly Notices of the Royal Astronomical Society|volume=55|page=429|month=June|year=1895|bibcode= 1895MNRAS..55..429K}}&lt;/ref&gt; This has been variously [[Romanization|romanized]] in the past, leading to obsolete variants such as '''Aramec''' and '''Azimech'''. The name '''Alramih''' is used in [[Geoffrey Chaucer]]'s ''[[Treatise on the Astrolabe]]'' of 1391. Another Arabic name is '''Haris-el-sema''', from '''حارس السماء''' ''ħāris al-samā’'' &quot;the keeper of heaven&quot;.&lt;ref name=arabicstar&gt;[http://www.jas.org.jo/arabic/alma.html List of the 25&amp;nbsp;brightest stars], website of the Jordanian Astronomical Society, accessed March 28, 2007.&lt;/ref&gt;&lt;ref name=allen&gt;Richard Hinckley Allen, ''Star-names and their meanings'' (1936), p. 100-101.&lt;/ref&gt;&lt;ref name=arabicdict&gt;Hans Wehr (J.M. Cowan ed.), ''A dictionary of modern written Arabic'' (1994).&lt;/ref&gt; or ''' حارس ألشمل''' ''ħāris al-shamāl’'' &quot;the keeper of north&quot;.&lt;ref&gt;Davis Jr., G. A., [http://adsabs.harvard.edu/abs/1944PA.....52....8D &quot;The Pronunciations, Derivations, and Meanings of a Selected List of Star Names,&quot;]''Popular Astronomy'', Vol. LII, No. 3, Oct. 1944, p. 13.&lt;/ref&gt;
+
+Arcturus was once again called by its classical name from the Renaissance onwards.&lt;ref&gt;{{cite book |author= Kunitzsch, Paul; Smart, Tim|year = 2006|title = A Dictionary of Modern star Names: A Short Guide to 254 Star Names and Their Derivations |edition = 2nd rev.  |publisher = [[New Track Media#Sky Publishing|Sky Pub]] |location = [[Cambridge, Massachusetts|Cambridge]], [[Massachusetts|MA]] |isbn = 978-1-931559-44-7 |page = 19}}&lt;/ref&gt;
+
+===Aboriginal Australians===
+Kinship was integral to aboriginal societies in Australia, and the stars were often linked to other stars as kin.&lt;ref name=&quot;noctuary&quot;&gt;{{cite book|last=Johnson|first=Diane|title=Night skies of aboriginal Australia: a noctuary|publisher=University of Sydney|location=Darlington, New South Wales|year=1998|pages=24, 69, 112 |isbn=1-86451-356-X}}&lt;/ref&gt; The [[Wotjobaluk]] [[Koori]] people of southeastern Australia knew Arcturus as ''Marpean-kurrk'', mother of ''Djuit'' ([[Antares]]) and another star in Bootes, ''Weet-kurrk'',&lt;ref name=mud&gt;{{Cite book|last=Mudrooroo|title=Aboriginal mythology : an A-Z spanning the history of aboriginal mythology from the earliest legends to the present day|publisher=HarperCollins|location=London|year= 1994|page=5|isbn=1-85538-306-3}}&lt;/ref&gt; ([[Eta Boötis|Muphrid]]).&lt;ref name=hamacher10&gt;{{cite journal|author=Hamacher, Duane W.; Frew, David J. |year=2010|title= An Aboriginal Australian Record of the Great Eruption of Eta Carinae|journal=Journal of Astronomical History &amp; Heritage |volume=13|issue=3|pages= 220–34|url=http://arxiv.org/ftp/arxiv/papers/1010/1010.4610.pdf}}&lt;/ref&gt; Its appearance in the north signified the arrival of the larvae of the [[Formica|wood ant]] (a food item) in spring. The beginning of summer was marked by the star's setting with the sun in the west and the disappearance of the larvae.&lt;ref name=mud/&gt; The people of [[Milingimbi Island]] in Arnhem Land saw Arcturus and Muphrid as man and woman, and took the appearance of Arcturus at sunrise  as a sign to go and harvest ''rakia'' or spikerush (a type of water chestnut of the genus ''[[Eleocharis]]'').&lt;ref name=&quot;noctuary&quot;/&gt;
+
+===China===
+In [[Chinese astronomy]], Arcturus is called ''Da Jiao'' ({{zh|c=大角|p=Dàjiǎo|l=great horn}}), because it is the brightest star in the [[Chinese constellation]] called ''[[Horn (Chinese constellation)|Jiao Xiu]]'' ({{zh|c=角宿|p=Jiǎo Xiǔ|l=horn mansion|links=no}}). Later it become a part of another constellation ''[[Neck (Chinese constellation)|Kang Xiu]]'' ({{zh|c=亢宿|p=Kàng Xiǔ|links=no}}).
+
+===Inuit===
+In [[Inuit astronomy]], Arcturus is called the Old Man (''Uttuqalualuk'' in [[Inuit]]) and The First Ones (''Sivulliik'' in [[Inuit]]).
+
+===India===
+In Indian [[Astrology]] or [[Jyotiṣa|Vedic Astrology]] or [[Sidereal astrology|Sidereal Astrology]], Arcturus is called ''''[[Svati]]'''' which is a word meaning &quot;very beneficent&quot; derived from the language [[Sanskrit]]. It is the [[eponymous]] star of one of the [[nakshatra]]s (lunar mansions) of [[Hindu astrology]].
+
+===Indonesia===
+In Indonesia, Arcturus is called ''Bintang Biduk'' (Star of boat).
+
+===New Age===
+It is taught by a disciple of [[New Age]] [[guru]] [[Jose Arguelles]] on Arguelles’ website that 3,000,000 years ago beings from Arcturus colonized the northern hemisphere of [[Mars]] and beings from [[Antares]] colonized the planet′s southern hemisphere.&lt;ref&gt;[http://www.lawoftime.org/timeshipearth/arcturus.html Law of Time (Jose Arguelles’ official website)--Timeship Earth 2013—&quot;Arcturus Remembered&quot;—Transmission by “Pan Agent”:]&lt;/ref&gt;
+
+===1933 World's Fair===
+Arcturus achieved fame when its light was used to open the [[Century of Progress|1933 Chicago World's Fair]]. The star was chosen as it was thought that light from Arcturus had started its journey at about the time of the [[World's Columbian Exposition|previous Chicago World's Fair]] in 1893 (as the star is 36.7&amp;nbsp;light years away the light had, actually, started its journey in 1896).&lt;ref&gt;{{cite web|title=Century of Progress World's Fair, 1933-1934|publisher=University of Illinois-Chicago|date=2008-01|url=http://collections.carli.illinois.edu/cdm4/item_viewer.php?CISOROOT=/uic_cop&amp;CISOPTR=45&amp;CISOBOX=1&amp;REC=1| accessdate=2009-09-06}}&lt;/ref&gt;
+
+==See also==
+* [[Stars and planetary systems in fiction#Arcturus (Alpha Boötis)|Arcturus in fiction]]
+* [[Arcturus stream]]
+
+==References==
+{{reflist|30em|refs=
+
+&lt;ref name=aaa465_2_593&gt;{{citation | last1=Schröder | first1=K.-P. | last2=Cuntz | first2=M. | title=A critical test of empirical mass loss formulas applied to individual giants and supergiants | journal=Astronomy and Astrophysics | volume=465 | issue=2 | pages=593–601 | month=April | year=2007 | doi=10.1051/0004-6361:20066633 | bibcode=2007A&amp;A...465..593S |arxiv = astro-ph/0702172 }}&lt;/ref&gt;
+
+&lt;ref name=aj126_2_2502&gt;{{citation | display-authors=1 | last1=Mozurkewich | first1=D. | last2=Armstrong | first2=J. T. | last3=Hindsley | first3=R. B. | last4=Quirrenbach | first4=A. | last5=Hummel | first5=C. A. | last6=Hutter | first6=D. J. | last7=Johnston | first7=K. J. | last8=Hajian | first8=A. R. | last9=Elias | first9=Nicholas M., II | title=Angular diameters of stars from the Mark III optical interferometer | journal=Astronomical Journal | volume=126 | issue=2 | pages=2502–2520 | year=2003 | doi=10.1086/378596 | bibcode=2003AJ....126.2502M |arxiv = }}&lt;/ref&gt;
+
+&lt;ref name=aaa526_A100&gt;{{citation | display-authors=1 | last1=Piau | first1=L. | last2=Kervella | first2=P. | last3=Dib | first3=S. | last4=Hauschildt | first4=P. | title=Surface convection and red-giant radius measurements | journal=Astronomy and Astrophysics | volume=526 | page=A100 | month=February | year=2011 | doi=10.1051/0004-6361/201014442 | bibcode=2011A&amp;A...526A.100P | arxiv=1010.3649 }}&lt;/ref&gt;
+
+&lt;ref name=aj135_3_892&gt;{{citation | display-authors=1 | last1=Carney | first1=Bruce W. | last2=Gray | first2=David F. | last3=Yong | first3=David | last4=Latham | first4=David W. | last5=Manset | first5=Nadine | last6=Zelman | first6=Rachel | last7=Laird | first7=John B. | title=Rotation and Macroturbulence in Metal-Poor Field Red Giant and Red Horizontal Branch Stars | journal=The Astronomical Journal | volume=135 | issue=3 | pages=892–906 | month=March | year=2008 | doi=10.1088/0004-6256/135/3/892 | bibcode=2008AJ....135..892C |arxiv = 0711.4984 }}&lt;/ref&gt;
+
+&lt;ref name=&quot;SIMBAD-Arcturus&quot;&gt;{{cite web | title=Arcturus (HD 124897) | publisher=SIMBAD Astronomical Database | url=http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Arcturus | accessdate=2011-11-27 }}&lt;/ref&gt;
+}}
+
+==External links==
+{{commons category}}
+* [http://webviz.u-strasbg.fr/viz-bin/VizieR-S?HR%205340 HR 5340]  Catalog
+* [http://webviz.u-strasbg.fr/viz-bin/VizieR-S?GJ%20541 GJ 541]  Catalog
+* [http://www.co-intelligence.org/newsletter/comparisons.html Illustration comparing the size of Arcturus with other stars]
+* [http://www.solstation.com/stars2/arcturus.htm SolStation.com entry]
+* [http://aladin.u-strasbg.fr/alapre.pl?-c=14+15+39.6720%2B19+10+56.677&amp;button=RGB Image Arcturus]
+{{Sky|14|15|39.7||19|10|56|37}}
+
+{{Nearest bright star systems|4.}}
+{{Stars of Boötes}}
+
+[[Category:Bayer objects|Bootis, Alpha]]
+[[Category:Boötes (constellation)]]
+[[Category:Flamsteed objects|Bootis, 16]]
+[[Category:Henry Draper Catalogue objects|124897]]
+[[Category:Hipparcos objects|069673]]
+[[Category:K-type giants]]
+[[Category:Suspected variables]]
+[[Category:Hypothetical planetary systems]]
+[[Category:Stars with proper names]]</text>
+        <sha1>eamjiiq947dcxot0frdl5rgsqb9ps66</sha1>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+    </revision>
+</page>

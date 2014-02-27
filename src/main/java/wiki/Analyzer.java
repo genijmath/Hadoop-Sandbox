@@ -80,15 +80,16 @@ public class Analyzer {
      * Titles marked by ^=...=$
      * [http:// ... ]  (single bracket!)
      * Control structures tagged as {{....}}  with possible embedded levels {{ ... {{ ... }}  ...  }}
+     *   special case: {{xxx begin}}....{{xxx end}}
      * [[File: .... [[  ....  ]]  .... ]]
      * [[Image: .... [[  ....  ]]  .... ]]
+     * {| ... |}  like {|class=&quot;wikitable&quot;...|} with possible embedded levels ( {{...}} are removed before {|..|} is processed
      * More generally: [[\w*: ... ]]
      * References tagged by <ref ...</ref>     -- removes citations  -- ignoring <br>
      * &lt;gallery&gt; ... &lt;/gallery&gt;
      * more generally, all text between &lt; and 'matching' &gt;
      * Removes: #REDIRECT articles
      *
-     * Does not remove: tables (TODO)
      * @param page single wiki page
      * @param len actual length of the wiki page
      * @param removeStart indicates if we should consider only chars after<text xml:space="preserve">
@@ -144,6 +145,9 @@ public class Analyzer {
         byte[] gtBytes = "\1&gt;".getBytes();//temp buffer
         byte[] closeComment = "\1--&gt;".getBytes();
 
+        byte[] openConstruct = new byte[3];
+        byte[] closeConstruct = new byte[3];
+
         I:
         for(int i = end; i < len; i++){
             byte b = page[i];
@@ -183,8 +187,29 @@ public class Analyzer {
 
             if (braceBytes.length == braceBytes[0]){  //remove {{...}}
                 braceBytes[0] = 1;
-                int rc = getClosePosition(page, len, i+1, (byte)'{', (byte)'}');//returns position of the character after }}
-                if (rc != -1){
+                openConstruct[0] = 1;
+                openConstruct[1] = openConstruct[2] = '{';
+                closeConstruct[0] = 1;
+                closeConstruct[1] = closeConstruct[2] = '}';
+                int rc = getClosePosition(page, len, i+1, openConstruct, closeConstruct);//returns position of the character after }}
+                if (rc !=-1){
+                    int tg = i+1;//handle {{*** begin | }} ... {{*** end}}
+                    while(letters[(int)page[tg]&0xFF]) tg++;
+                    int nxt=tg;
+                    while(!letters[(int)page[nxt]&0xFF]) nxt++;
+                    if (nxt < rc){
+                        if (nxt+5 < len && page[nxt]=='b'&&page[nxt+1]=='e'&&page[nxt+2]=='g'&&page[nxt+3]=='i'&&page[nxt+4]=='n' && !letters[(int)page[nxt+5]&0xFF]){
+                            byte[] oc = ("\1{{"+ new String(page, i+1, tg-i-1) + " begin").getBytes();
+                            byte[] cc = ("\1{{"+ new String(page, i+1, tg-i-1) + " end}}").getBytes();
+                            int rc2 = getClosePosition(page, len, i+1, oc, cc);
+                            if (rc2 != -1){
+                                i = rc2-1; //found {{*** end}}
+                                pointer -= 1;
+                                continue I;
+                            }
+                        }
+                    }
+
                     i = rc - 1;
                     pointer -= 1;
                     continue I;
@@ -193,6 +218,11 @@ public class Analyzer {
 
             if (bracketBytes.length == bracketBytes[0]){  //remove [[...]] if necessary
                 bracketBytes[0] = 1;
+                openConstruct[0] = 1;
+                openConstruct[1] = openConstruct[2] = '[';
+                closeConstruct[0] = 1;
+                closeConstruct[1] = closeConstruct[2] = ']';
+
                 boolean remove = false;
                 for(int j = i+1; j < len; j++){
                     if (!letters[(int) page[j] & 0xFF]){
@@ -202,7 +232,7 @@ public class Analyzer {
                 }
                 if (remove){
                     bracketBytes[0] = 1;
-                    int rc = getClosePosition(page, len, i+1, (byte)'[', (byte)']');//returns position of the character after }}
+                    int rc = getClosePosition(page, len, i+1, openConstruct, closeConstruct);//returns position of the character after }}
                     if (rc!=-1){
                         i = rc - 1;
                         pointer -= 1;
@@ -230,7 +260,7 @@ public class Analyzer {
                 if (e < len && e != i+1){
                     int rc = 0;
                     try{
-                        if (e == i + 3 && ( //<br>
+                        if (e == i + 3 && ( //<br> or <br />
                                 (page[i+1]=='b' && page[i+2] == 'r')||
                                 (page[i+1]=='B' && page[i+2] == 'R'))){
                             pointer -= 3;
@@ -287,6 +317,57 @@ public class Analyzer {
 
             page[pointer++] = b;
         }
+
+
+        return cleanupPageSecond(page, pointer);
+    }
+
+    //removes {|..|} after {{...}} is removed
+    private static int cleanupPageSecond(byte[] page, int len){
+        final byte[] txtStart = "<text xml:space=\"preserve\">".getBytes();
+
+        int pointer = 0;
+
+
+        //first byte is used as a counter, so it is initialized as \1
+        byte[] classBytes = "\1{|".getBytes();
+
+        byte[][] tags = new byte[][]{classBytes};
+        byte[] openConstruct = new byte[3];
+        byte[] closeConstruct = new byte[3];
+
+        I:
+        for(int i = 0; i < len; i++){
+            byte b = page[i];
+
+            for (byte[] tag: tags){
+                if (tag[tag[0]] == b){
+                    tag[0]++;
+                }else{
+                    tag[0] = 1;
+                }
+            }
+
+            if (classBytes.length == classBytes[0]){ //remove {|...|}
+                classBytes[0] = 1;
+                openConstruct[0] = 1;
+                openConstruct[1] = '{';
+                openConstruct[2] = '|';
+                closeConstruct[0] = 1;
+                closeConstruct[1] = '|';
+                closeConstruct[2] = '}';
+                int rc = getClosePosition(page, len, i+1, openConstruct, closeConstruct);//returns position of the character after }}
+                if (rc != -1){
+                    i = rc - 1;
+                    pointer -= 1;
+                    continue I;
+                }
+            }
+
+            page[pointer++] = b;
+        }
+
+
         return pointer;
     }
 
@@ -407,39 +488,35 @@ public class Analyzer {
         return -1;
     }
 
-    private static int getClosePosition(byte[] page, int len, int i, byte brace, byte endBrace) {
-
-        int endBrc = 0;
-        int startBrc = 0;
+    private static int getClosePosition(byte[] page, int len, int i, byte[] openBrace, byte[] closeBrace) {
         int lvl = 1;
-        for(int j = i+1; j < len; j++){
+        for(int j = i; j < len; j++){
+            if (page[j] == closeBrace[closeBrace[0]]){
+                closeBrace[0]++;
+            }
+            else{
+                closeBrace[0] = 1;
+            }
 
-            if (startBrc == 2){
-                startBrc = 0;
+            if (page[j] == openBrace[openBrace[0]]){
+                openBrace[0]++;
+            }
+            else{
+                openBrace[0] = 1;
+            }
+
+            if (openBrace[0] == openBrace.length){
+                openBrace[0] = 1;
                 lvl++;
             }
 
-            if (endBrc == 2){
-                endBrc = 0;
+            if (closeBrace[0] == closeBrace.length){
+                closeBrace[0] = 1;
                 lvl--;
                 if (lvl == 0){
-                    return j;
+                    return j+1;
                 }
             }
-
-            if (page[j] == endBrace){
-                endBrc++;
-            }
-            else{
-                endBrc = 0;
-            }
-
-            if (page[j] == brace)
-                startBrc++;
-            else{
-                startBrc = 0;
-            }
-
         }
         return -1;
     }
