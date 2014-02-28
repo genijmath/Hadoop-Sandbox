@@ -94,13 +94,18 @@ so special hash-map implementation was used.
 
 
 
-Wiki data is processing
-=======================
+Wiki data processing
+====================
 
 `wiki.ETL.Import`: takes original wiki data, and converts into [Title->cleaned page content] sequence file, `gzip`  
 `wiki.ETL.WordStem`: takes `ETL.Import` output and generates [Title->word-stems only] sequence file, `gzip`  
 `wiki.WordCount`: takes `ETL.WordStem` output and generates word-counts.  
 
+
+Surprising results
+==================
+One of the most frequently used words in wiki data are `talk` and `utc`.     
+Wiki adds `utc` whenever it specifies time of an event which moved `utc` at the top of the list.
 
 
 *git push hadoop master*
