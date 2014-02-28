@@ -38,7 +38,7 @@ class TestConfig {
     static {
         Properties prop = new Properties();
         try {
-            InputStream is = PageTitlesTest.class.getResourceAsStream(testProp);
+            InputStream is = WordCount.class.getResourceAsStream(testProp);
             if (is == null){
                 is = new FileInputStream(testProp);
             }
