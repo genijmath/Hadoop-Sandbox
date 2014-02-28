@@ -1,10 +1,10 @@
 Hadoop-Sandbox
 ==============
 
-This project implements a word-count map-reduce job using Wiki data in an efficient way.
-This involves cleaning wiki markup, stemming, and "in-mapper combining" design pattern.
-Surprisingly it covers many techniques described by Tom White.
-Couple of critical Hadoop-2.0.0 bugs where discovered along the way.
+This project implements a word-count map-reduce job using Wiki data in an efficient way.  
+This involves cleaning wiki markup, stemming, and "in-mapper combining" design pattern.  
+Surprisingly it covers many techniques described by Tom White.  
+Couple of critical Hadoop-2.0.0 bugs where discovered along the way.  
 
 Jobs are executed through unit tests; some jobs are submitted locally and some jobs run on pseudo-cluster.
 
@@ -12,13 +12,12 @@ Jobs are executed through unit tests; some jobs are submitted locally and some j
 Data sources
 ============
 
-Data source is coming from [wiki-offline] (http://en.wikipedia.org/wiki/Wikipedia:Database_download)
+Data source is coming from [wiki-offline] (http://en.wikipedia.org/wiki/Wikipedia:Database_download)  
 I used [Unofficial Torrent Main Link] (http://kickass.to/wikipedia-english-official-offline-edition-version-20130805-xprt-t7731695.html)
 (Aug 5, 2013; 30AC2EF27829B1B5A7D0644097F55F335CA5241B is the info hash)
 
-File wiki.xml.bz2 (10,082,006,833 bytes) references this data source.
-File wiki.0.bz2 is first 2000000 records from wiki.xml.bz2
-
+File wiki.xml.bz2 (10,082,006,833 bytes) references this data source.  
+File wiki.0.bz2 is first 2000000 records from wiki.xml.bz2  
 (see test.properties)
 
 
@@ -26,7 +25,7 @@ File wiki.0.bz2 is first 2000000 records from wiki.xml.bz2
 Environment setup
 =================
 
-I installed Claudera cdh4.5.0 on 6-core desktop (using YARN), Ubuntu 12.05 x64.
+I installed Claudera cdh4.5.0 on 6-core desktop (using YARN), Ubuntu 12.05 x64.  
 Deployment followed [CDH4 Quick Start] (http://www.cloudera.com/content/cloudera-content/cloudera-docs/CDH4/latest/CDH4-Quick-Start/cdh4qs_topic_3_3.html)
 but then some changes were applied to config files (`hadoop_cfg` folder contains configuration files)
 
@@ -49,21 +48,21 @@ Maven is configured to use Cloudera repository:
 
 I used IntelliJ (community edition) as an IDE.
 
-maven-surefire-plugin maven plugin was used to configure classpath.
-It looks like this classpath is applicable to unit tests only, which is why all code is executed from unit tests
+maven-surefire-plugin maven plugin was used to configure classpath.  
+It looks like this classpath is applicable to unit tests only, which is why all code is executed from unit tests  
 (in production you would use hadoop script to start your jobs, so this applies to IDE/dev setup only)
 
 
 Configuration
 =============
-Tests use test.properties file for configuration.
+Tests use test.properties file for configuration.  
 Some test have hardcoded values of 6 or 12 which reflect number of cores on my desktop
 
 
 Notes
 =====
 
-Wiki data comes as XML file (bzip2).
+Wiki data comes as XML file (bzip2).  
 I made an attempt to use Mahout's `XmlInputFormat` but it does not accept compressed input.
 
 The approach used to parse XML is to use `TextInputFormat` format with `</page>` as a delimiter.
@@ -98,9 +97,9 @@ so special hash-map implementation was used.
 Wiki data is processing
 =======================
 
-`wiki.ETL.Import`: takes original wiki data, and converts into [Title->cleaned page content] sequence file, `gzip`
-`wiki.ETL.WordStem`: takes `ETL.Import` output and generates [Title->word-stems only] sequence file, `gzip`
-`wiki.WordCount`: takes `ETL.WordStem` output and generates word-counts.
+`wiki.ETL.Import`: takes original wiki data, and converts into [Title->cleaned page content] sequence file, `gzip`  
+`wiki.ETL.WordStem`: takes `ETL.Import` output and generates [Title->word-stems only] sequence file, `gzip`  
+`wiki.WordCount`: takes `ETL.WordStem` output and generates word-counts.  
 
 
 
