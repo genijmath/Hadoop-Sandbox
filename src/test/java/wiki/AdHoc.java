@@ -1,17 +1,13 @@
 package wiki;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.SequenceFile;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.util.ReflectionUtils;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.regex.Pattern;
 
-import static org.junit.Assert.assertEquals;
 
 /**
  * Copyright 2014 Yevgen Yampolskiy
@@ -31,9 +27,8 @@ import static org.junit.Assert.assertEquals;
 public class AdHoc {
     @Test
     public void findPages() throws Exception {
-        String outpath = "file:///" + TestConfig.project_path + "/Data/output/wiki/Import/loc_0";
+        String outpath = "file:///" + TestConfig.project_path + "/Data/output/wiki/Stems/loc_0";
         Configuration conf = new Configuration();
-        FileSystem fs = FileSystem.getLocal(conf);
 
         SequenceFile.Reader reader;
         reader = new SequenceFile.Reader(conf, SequenceFile.Reader.file(new Path(outpath, "part-r-00000")));
@@ -43,7 +38,8 @@ public class AdHoc {
         value = new Text();
 
         //Set<String> special = new HashSet<String>(Arrays.asList("align", "style", "center", "bgcolor", "class"));
-        Set<String> special = new HashSet<String>(Arrays.asList("bgcolor"));
+        //Set<String> special = new HashSet<String>(Arrays.asList("utc"));
+        Set<String> special = new HashSet<String>(Arrays.asList("talk"));
 
 
         while(reader.next(key, value)){
