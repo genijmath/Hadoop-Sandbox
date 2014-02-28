@@ -53,8 +53,8 @@ public class WordCountTest extends TestGeneric{
     public void testMapper() throws IOException {
         mapDriver.withInput(new Text("article_nm"), new Text(
                 "little little pig the little"));
-        mapDriver.withOutput(new Text("the"), new IntWritable(1));
         mapDriver.withOutput(new Text("pig"), new IntWritable(1));
+        mapDriver.withOutput(new Text("the"), new IntWritable(1));
         mapDriver.withOutput(new Text("little"), new IntWritable(3));
         mapDriver.runTest();
     }
@@ -134,252 +134,252 @@ public class WordCountTest extends TestGeneric{
 
         @Override
         public InputSplit getInputSplit() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public boolean nextKeyValue() throws IOException, InterruptedException {
-            return false;  //To change body of implemented methods use File | Settings | File Templates.
+            return false;  
         }
 
         @Override
         public Text getCurrentKey() throws IOException, InterruptedException {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Text getCurrentValue() throws IOException, InterruptedException {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public void write(Text key, IntWritable value) throws IOException, InterruptedException {
-            //To change body of implemented methods use File | Settings | File Templates.
+            
         }
 
         @Override
         public OutputCommitter getOutputCommitter() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public TaskAttemptID getTaskAttemptID() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public void setStatus(String msg) {
-            //To change body of implemented methods use File | Settings | File Templates.
+            
         }
 
         @Override
         public String getStatus() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public float getProgress() {
-            return 0;  //To change body of implemented methods use File | Settings | File Templates.
+            return 0;  
         }
 
         @Override
         public Counter getCounter(Enum<?> counterName) {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Counter getCounter(String groupName, String counterName) {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Configuration getConfiguration() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Credentials getCredentials() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public JobID getJobID() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public int getNumReduceTasks() {
-            return 0;  //To change body of implemented methods use File | Settings | File Templates.
+            return 0;  
         }
 
         @Override
         public Path getWorkingDirectory() throws IOException {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Class<?> getOutputKeyClass() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Class<?> getOutputValueClass() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Class<?> getMapOutputKeyClass() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Class<?> getMapOutputValueClass() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public String getJobName() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public boolean userClassesTakesPrecedence() {
-            return false;  //To change body of implemented methods use File | Settings | File Templates.
+            return false;  
         }
 
         @Override
         public Class<? extends InputFormat<?, ?>> getInputFormatClass() throws ClassNotFoundException {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Class<? extends Mapper<?, ?, ?, ?>> getMapperClass() throws ClassNotFoundException {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Class<? extends Reducer<?, ?, ?, ?>> getCombinerClass() throws ClassNotFoundException {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Class<? extends Reducer<?, ?, ?, ?>> getReducerClass() throws ClassNotFoundException {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Class<? extends OutputFormat<?, ?>> getOutputFormatClass() throws ClassNotFoundException {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Class<? extends Partitioner<?, ?>> getPartitionerClass() throws ClassNotFoundException {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public RawComparator<?> getSortComparator() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public String getJar() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public RawComparator<?> getGroupingComparator() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public boolean getJobSetupCleanupNeeded() {
-            return false;  //To change body of implemented methods use File | Settings | File Templates.
+            return false;  
         }
 
         @Override
         public boolean getTaskCleanupNeeded() {
-            return false;  //To change body of implemented methods use File | Settings | File Templates.
+            return false;  
         }
 
         @Override
         public boolean getProfileEnabled() {
-            return false;  //To change body of implemented methods use File | Settings | File Templates.
+            return false;  
         }
 
         @Override
         public String getProfileParams() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public Configuration.IntegerRanges getProfileTaskRange(boolean isMap) {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public String getUser() {
-            return null;  //To change body of implemented methods use File | Settings | File Templates.
+            return null;  
         }
 
         @Override
         public boolean getSymlink() {
-            return false;  //To change body of implemented methods use File | Settings | File Templates.
+            return false;  
         }
 
         @Override
         public Path[] getArchiveClassPaths() {
-            return new Path[0];  //To change body of implemented methods use File | Settings | File Templates.
+            return new Path[0];  
         }
 
         @Override
         public URI[] getCacheArchives() throws IOException {
-            return new URI[0];  //To change body of implemented methods use File | Settings | File Templates.
+            return new URI[0];  
         }
 
         @Override
         public URI[] getCacheFiles() throws IOException {
-            return new URI[0];  //To change body of implemented methods use File | Settings | File Templates.
+            return new URI[0];  
         }
 
         @Override
         public Path[] getLocalCacheArchives() throws IOException {
-            return new Path[0];  //To change body of implemented methods use File | Settings | File Templates.
+            return new Path[0];  
         }
 
         @Override
         public Path[] getLocalCacheFiles() throws IOException {
-            return new Path[0];  //To change body of implemented methods use File | Settings | File Templates.
+            return new Path[0];  
         }
 
         @Override
         public Path[] getFileClassPaths() {
-            return new Path[0];  //To change body of implemented methods use File | Settings | File Templates.
+            return new Path[0];  
         }
 
         @Override
         public String[] getArchiveTimestamps() {
-            return new String[0];  //To change body of implemented methods use File | Settings | File Templates.
+            return new String[0];  
         }
 
         @Override
         public String[] getFileTimestamps() {
-            return new String[0];  //To change body of implemented methods use File | Settings | File Templates.
+            return new String[0];  
         }
 
         @Override
         public int getMaxMapAttempts() {
-            return 0;  //To change body of implemented methods use File | Settings | File Templates.
+            return 0;  
         }
 
         @Override
         public int getMaxReduceAttempts() {
-            return 0;  //To change body of implemented methods use File | Settings | File Templates.
+            return 0;  
         }
 
         @Override
         public void progress() {
-            //To change body of implemented methods use File | Settings | File Templates.
+            
         }
     }
     @Test
