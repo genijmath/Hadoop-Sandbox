@@ -39,7 +39,7 @@ import java.util.*;
 public class WordCount {
 
     static class WordCache{
-        //HashMap boxing creates overhead
+        //HashMap did not work well (garbage collection was an overkill)
         //What is implemented here is an open addressing hash table using double hashing
         //see "Introduction to Algorithms", (Chapter: Hash Tables)
         //Some adjustment was made so that hash never was getting into an overflow situation:
